@@ -1,0 +1,15 @@
+<!--{{ 'Current version is v%VERSION%.' | interpolate }}-->
+<div ng-controller="View2Ctrl as stuff">
+<ul>
+    <li ng-repeat="giant in stuff.giants">
+        {{ giant.name }}
+        <select
+                ng-repeat="slot in giant.slots"
+                ng-model="slotModel"
+                ng-options="ambassador.name for ambassador in stuff.ambassadors"
+                ng-change="update()">
+            <option value="">- None -</option>
+        </select>
+    </li>
+</ul>
+</div>

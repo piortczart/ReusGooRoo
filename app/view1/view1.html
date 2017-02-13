@@ -1,0 +1,19 @@
+<div ng-controller="View1Ctrl as stuff">
+<p>
+    Select the ambassadors you have on each giant:
+    <ul>
+    <li ng-repeat="biome in stuff.biomes.withGiants()">
+            Giant: [{{ biome.name }}]
+            Ambassadors:
+        <!-- 'giant_{0}_{1}' | format:biome.name:i -->
+        <select
+                ng-repeat="i in [1,2,3,4]"
+                ng-model="giant_model"
+                ng-options="v.name for v in stuff.biomes.withAmbassadors()"
+                ng-change="updateSelection()">
+            <option value="">- None -</option>
+        </select>
+        </li>
+    </ul>
+    </p>
+</div>

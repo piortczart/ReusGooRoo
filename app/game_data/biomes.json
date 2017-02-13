@@ -1,0 +1,9 @@
+[
+  {"name": "forest", "hasGiant": true, "hasAmbassador": true},
+  {"name": "desert", "hasGiant": true, "hasAmbassador": true},
+  {"name": "swamp", "hasGiant": true, "hasAmbassador": true},
+  {"name": "ocean", "hasGiant": true, "hasAmbassador": false},
+  {"name": "mountain", "hasGiant": false, "hasAmbassador": false}
+]
+
+
