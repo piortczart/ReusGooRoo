@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "biome": "ocean",
+    "abilities": [
+      {
+        "id": 11,
+        "name": "domestic animal"
+      },
+      {
+        "id": 12,
+        "name": "growth"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "biome": "forest",
+    "abilities": [
+      {
+        "id": 21,
+        "name": "fruit plant",
+        "is_aspect": false,
+        "works_on": "plant"
+      },
+      {
+        "id": 21,
+        "name": "domestic animal"
+      }
+    ]
+  }
+]
