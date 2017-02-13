@@ -9,16 +9,33 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', function($scope) {
+.controller('View2Ctrl', function($scope, gameServiceFactory) {
     // Giants
-    this.giants = all_giants;
+    this.giants = gameServiceFactory.all_giants;
     // Ambassadors
-    this.ambassadors = all_ambassadors;
+    this.ambassadors = gameServiceFactory.all_ambassadors;
+    // Resources
+    this.resources = gameServiceFactory.all_resources;
+
+    $scope.lotSize = 3;
 
     $scope.update = function(){
-      //console.log('something selected: ' + this.barModel.name)
       this.slot.ambassador = this.slotModel;
-      console.log(all_giants);
+      console.log(gameServiceFactory.all_giants[0]);
+    };
+
+    $scope.updateLotSize = function(){
+        console.log(this.lotSize);
+        if (this.lotSize > 10){
+            this.lotSize = 10;
+        }
+        if (this.lotSize < 1){
+            this.lotSize = 1;
+        }
+    };
+
+    $scope.calculateStuff = function() {
+        $scope.calculationResult = 10;
     };
 });
 //

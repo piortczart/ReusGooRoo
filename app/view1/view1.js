@@ -24,7 +24,7 @@ app.config(['$routeProvider', function($routeProvider) {
   });
 }])
 
-.controller('View1Ctrl', function($http, $scope) {
+.controller('View1Ctrl', function($http, $scope, gameServiceFactory) {
     var x = this;
     $http
         .get('game_data/biomes.json')
@@ -44,15 +44,6 @@ app.config(['$routeProvider', function($routeProvider) {
         var x = this;
     }
 });
-
-var Giant = (
-    function(){
-        function Giant(ambassadors) {
-            this._ambassadors = ambassadors;
-        };
-
-        return Giant;
-    })();
 
 var Biomes = (
     function(){

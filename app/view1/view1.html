@@ -1,6 +1,8 @@
 <div ng-controller="View1Ctrl as stuff">
 <p>
-    Select the ambassadors you have on each giant:
+    <h2>What is the best combination of natural sources I can create with my giants?</h2>
+
+    <h3>Select the ambassadors you have on each giant:</h3>
     <ul>
     <li ng-repeat="biome in stuff.biomes.withGiants()">
             Giant: [{{ biome.name }}]
