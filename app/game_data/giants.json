@@ -1,6 +1,5 @@
 [
   {
-    "id": 1,
     "biome": "ocean",
     "abilities": [
       {
@@ -14,7 +13,6 @@
     ]
   },
   {
-    "id": 2,
     "biome": "forest",
     "abilities": [
       {

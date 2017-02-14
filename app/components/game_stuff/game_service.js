@@ -1,26 +1,70 @@
+var Biomes = (function () {
+    function Biomes(biomesArray) {
+        this._all = biomesArray;
+    };
+
+    function hasGiant(biome) {
+        return biome.hasGiant;
+    }
+
+    function hasAmbassador(biome) {
+        return biome.hasAmbassador;
+    }
+
+    Biomes.prototype.withGiants = function () {
+        return this._all.filter(hasGiant);
+    };
+
+    Biomes.prototype.withAmbassadors = function () {
+        return this._all.filter(hasAmbassador);
+    };
+
+    return Biomes;
+})();
+
+var Biome = (function () {
+    var name;
+
+    function Biome(obj) {
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                this[prop] = obj[prop];
+            }
+        }
+    };
+
+    return Biome;
+})();
+
+var Giant = (function () {
+    // Each giant has slots for ambassadors.
+    var slots;
+    // Each giant has some abilities.
+    var abilities;
+
+    function Giant(obj) {
+        this.slots = [new GiantSlot(), new GiantSlot(), new GiantSlot(), new GiantSlot()];
+        for (var prop in obj) {
+            if (obj.hasOwnProperty(prop)) {
+                this[prop] = obj[prop];
+            }
+        }
+    };
+    return Giant;
+})();
+
+var GiantSlot = (function () {
+    //  Each slot can have one ambassador.
+    var ambassador;
+
+    function GiantSlot() {
+    };
+    return GiantSlot;
+})();
+
 angular.module('myApp').factory('gameServiceFactory', function () {
 
-    var Giant = (function () {
-        // Each giant has slots for ambassadors.
-        var slots;
-        // Each giant has some abilities.
-        var abilities;
 
-        function Giant(name) {
-            this.name = name;
-            this.slots = [new GiantSlot(), new GiantSlot(), new GiantSlot(), new GiantSlot()];
-        };
-        return Giant;
-    })();
-
-    var GiantSlot = (function () {
-        //  Each slot can have one ambassador.
-        var ambassador;
-
-        function GiantSlot() {
-        };
-        return GiantSlot;
-    })();
 
     var Ambassador = (function () {
         function Ambassador(name) {
@@ -42,6 +86,7 @@ angular.module('myApp').factory('gameServiceFactory', function () {
         };
         return GiantAbility;
     })();
+
 
     var service = {
         all_giants: [new Giant("forest"), new Giant("ocean")],

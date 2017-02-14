@@ -9,13 +9,44 @@ angular.module('myApp.view2', ['ngRoute'])
   });
 }])
 
-.controller('View2Ctrl', function($scope, gameServiceFactory) {
+.controller('View2Ctrl', function($scope, $http, gameServiceFactory) {
     // Giants
-    this.giants = gameServiceFactory.all_giants;
+    //this.giants = gameServiceFactory.all_giants;
     // Ambassadors
     this.ambassadors = gameServiceFactory.all_ambassadors;
     // Resources
     this.resources = gameServiceFactory.all_resources;
+
+    var x = this;
+
+    $http
+        .get('game_data/biomes.json')
+        .then(function(jsonFile) {
+            // Prepare a list of biomes (as objects)
+            var biomesArr = [];
+            for (var index = 0; index < jsonFile.data.length; ++index) {
+                // Deserialize json entry into a Biome object.
+                var biome = new Biome(jsonFile.data[index]);
+                biomesArr.push(biome);
+            }
+            // Store the biome objects.
+            x.biomes = new Biomes(biomesArr);
+        });
+
+    $http
+        .get('game_data/giants.json')
+        .then(function(jsonFile) {
+            // Prepare a list of biomes (as objects)
+            var itemsArr = [];
+            for (var index = 0; index < jsonFile.data.length; ++index) {
+                // Deserialize json entry into an object.
+                var item = new Giant(jsonFile.data[index]);
+                itemsArr.push(item);
+            }
+            x.giants = itemsArr;
+
+            console.log('', x.giants[0].biome)
+        });
 
     $scope.lotSize = 3;
 

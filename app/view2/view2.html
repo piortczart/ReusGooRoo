@@ -4,7 +4,7 @@
     <ul>
         <!-- Iterate the giants. -->
         <li ng-repeat="giant in stuff.giants">
-            {{ giant.name }}
+            {{ giant.biome }}
             <!-- For each giant show it's slots and in each slot show possible ambassadors. -->
             <select
                     ng-repeat="slot in giant.slots"
