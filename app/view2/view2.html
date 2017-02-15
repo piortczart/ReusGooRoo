@@ -1,15 +1,16 @@
-<div ng-controller="View2Ctrl as stuff">
+<div ng-controller="View2Ctrl as ctrl">
     <h2>What are the best combinations of natural sources I can create with my giants?</h2>
     <h3>1. Select which ambassadors you have.</h3>
+
     <ul>
         <!-- Iterate the giants. -->
-        <li ng-repeat="giant in stuff.giants">
+        <li ng-repeat="giant in giants">
             {{ giant.biome }}
             <!-- For each giant show it's slots and in each slot show possible ambassadors. -->
             <select
                     ng-repeat="slot in giant.slots"
                     ng-model="slotModel"
-                    ng-options="ambassador.name for ambassador in stuff.ambassadors"
+                    ng-options="ambassador.biome for ambassador in ambassadors"
                     ng-change="update()">
                 <option value="">- None -</option>
             </select>
