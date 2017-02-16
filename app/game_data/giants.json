@@ -1,29 +1,109 @@
 [
   {
-    "biome": "ocean",
+    "name": "ocean",
     "abilities": [
       {
-        "id": 11,
-        "name": "domestic animal"
+        "name": "domestic animal",
+        "requires_ambassadors": [
+          "",
+          "sa",
+          "saaa"
+        ]
+      }
+    ],
+    "aspects": [
+      {
+        "name": "Growth",
+        "works_on": "plants",
+        "requires_ambassadors": [
+          "",
+          "dd",
+          "ddda"
+        ]
       },
       {
-        "id": 12,
-        "name": "growth"
+        "name": "Herd",
+        "works_on": "animals",
+        "requires_ambassadors": [
+          "s",
+          "ss",
+          "sssa"
+        ]
       }
     ]
   },
   {
-    "biome": "forest",
+    "name": "forest",
     "abilities": [
       {
-        "id": 21,
-        "name": "fruit plant",
-        "is_aspect": false,
-        "works_on": "plant"
+        "name": "Fruit Plant",
+        "requires_ambassadors": [
+          "",
+          "fa",
+          "ffaa"
+        ]
+      }
+    ],
+    "aspects": [
+      {
+        "name": "Leaf",
+        "works_on": "plants",
+        "requires_ambassadors": [
+          "",
+          "sa",
+          "sfaa"
+        ]
       },
       {
-        "id": 21,
-        "name": "domestic animal"
+        "name": "Fruit",
+        "works_on": "plants",
+        "requires_ambassadors": [
+          "f",
+          "ff",
+          "fffa"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "swamp",
+    "abilities": [
+      {
+        "name": "Herbs",
+        "requires_ambassadors": [
+          "",
+          "fa",
+          "fsaa"
+        ]
+      },
+      {
+        "name": "Exotic Animal",
+        "requires_ambassadors": [
+          "",
+          "da",
+          "dsaa"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "rock",
+    "abilities": [
+      {
+        "name": "Precious Minerals",
+        "requires_ambassadors": [
+          "",
+          "da",
+          "ddaa"
+        ]
+      },
+      {
+        "name": "Advanced Minerals",
+        "requires_ambassadors": [
+          "",
+          "sa",
+          "sdaa"
+        ]
       }
     ]
   }
