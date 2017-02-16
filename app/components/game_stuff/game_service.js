@@ -7,7 +7,7 @@ angular.module('myApp').value('ValueMapper', function (target, source) {
     return target;
 });
 
-angular.module('myApp').factory('GameObjectsService', function ($http, Giant, Ambassador, Resource) {
+angular.module('myApp').factory('GameObjectsService', function ($http, Giant, Ambassador, Resource, Biome) {
     return {
         get: function (file_name, mapper) {
             return $http
@@ -28,6 +28,10 @@ angular.module('myApp').factory('GameObjectsService', function ($http, Giant, Am
 
         getResources: function () {
             return this.get('resources', Resource.fromJson);
+        },
+
+        getBiomes: function () {
+            return this.get('biomes', Biome.fromJson);
         }
     };
 });

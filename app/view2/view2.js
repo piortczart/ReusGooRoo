@@ -22,6 +22,10 @@ angular.module('myApp.view2', ['ngRoute'])
             $scope.resources = resources;
         });
 
+        GameObjectsService.getBiomes().then(function (resources) {
+            $scope.biomes = resources;
+        });
+
         $scope.lotSize = 3;
 
         $scope.update = function () {
@@ -38,17 +42,55 @@ angular.module('myApp.view2', ['ngRoute'])
             }
         };
 
+        function is_biome_valid_for_ability(ability, biome_name) {
+            for (var i = 0; i < ability.valid_biomes.length; i++) {
+                var suspected_biome = ability.valid_biomes[i];
+                if (suspected_biome == "all" || suspected_biome == biome_name) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function get_ability_on_biome_product(ability, biome_name) {
+            return ability.name + " on " + biome_name;
+        }
+
         $scope.calculateStuff = function () {
             $scope.calculationResult = 10;
 
+            // Prepare a list of all abilities giants currently have.
             var abilities = [];
-            var g = $scope.giants.forEach(function (item, index, array) {
+            $scope.giants.forEach(function (item) {
                 abilities = abilities.concat(item.get_active_abilities());
             });
 
-            console.log('', abilities);
+            var abilities_biomes = [];
+            abilities.forEach(function (ability) {
+                $scope.biomes.forEach(function (biome) {
+                    if (is_biome_valid_for_ability(ability, biome.name)) {
+                        abilities_biomes.push({"ability": ability, "biome": biome})
+                    }
+                });
+            });
+
+            var magic = [];
+            abilities_biomes.forEach(function (item1) {
+                abilities_biomes.forEach(function (item2) {
+                    abilities_biomes.forEach(function (item3) {
+                        magic.push([
+                            get_ability_on_biome_product(item1.ability, item1.biome.name),
+                            get_ability_on_biome_product(item2.ability, item2.biome.name),
+                            get_ability_on_biome_product(item3.ability, item3.biome.name)])
+                    })
+                })
+            });
+
+            console.log('', magic);
         };
     });
+
+
 //
 // {
 // |

@@ -57,3 +57,15 @@ angular.module('myApp').factory('Resource', function (ValueMapper) {
 
     return Resource;
 });
+
+angular.module('myApp').factory('Biome', function (ValueMapper) {
+    function Biome() {
+    }
+
+    Biome.fromJson = function (jsonObject) {
+        return ValueMapper(new Biome(), jsonObject);
+    }
+
+    // Return the constructor.
+    return Biome;
+});

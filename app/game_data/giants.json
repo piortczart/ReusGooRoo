@@ -8,6 +8,13 @@
           "",
           "sa",
           "saaa"
+        ],
+        "valid_biomes": [
+          {"name": "forest", "produces": "Chicken"},
+          {"name": "swamp", "produces": "Frog"},
+          {"name": "desert", "produces": "Kangaroo Rat"},
+          {"name": "mountain", "produces": "Marten"},
+          {"name": "ocean", "produces": "Mackerel"}
         ]
       }
     ],
@@ -41,6 +48,12 @@
           "",
           "fa",
           "ffaa"
+        ],
+        "valid_biomes": [
+          {"name": "forest", "produces": "Blueberry"},
+          {"name": "swamp", "produces": "Elderberry"},
+          {"name": "desert", "produces": "Withered Shrub"},
+          {"name": "mountain", "produces": "Kumquat"}
         ]
       }
     ],
@@ -74,6 +87,12 @@
           "",
           "fa",
           "fsaa"
+        ],
+        "valid_biomes": [
+          {"name": "forest", "produces": "Dandelion"},
+          {"name": "swamp", "produces": "Peppermint"},
+          {"name": "desert", "produces": "Withered Shrub"},
+          {"name": "mountain", "produces": "Kumquat"}
         ]
       },
       {
@@ -82,6 +101,13 @@
           "",
           "da",
           "dsaa"
+        ],
+        "valid_biomes": [
+          {"name": "forest", "produces": "Stoat"},
+          {"name": "swamp", "produces": "Poison Dart Frog"},
+          {"name": "desert", "produces": "Desert Tortoise"},
+          {"name": "mountain", "produces": "Marten"},
+          {"name": "ocean", "produces": "Clownfish"}
         ]
       }
     ]
@@ -95,6 +121,12 @@
           "",
           "da",
           "ddaa"
+        ],
+        "valid_biomes": [
+          {"name": "forest", "produces": "Agate"},
+          {"name": "swamp", "produces": "Agate"},
+          {"name": "desert", "produces": "Quartz"},
+          {"name": "mountain", "produces": "Agate"}
         ]
       },
       {
@@ -103,6 +135,12 @@
           "",
           "sa",
           "sdaa"
+        ],
+        "valid_biomes": [
+          {"name": "forest", "produces": ""},
+          {"name": "swamp", "produces": ""},
+          {"name": "desert", "produces": ""},
+          {"name": "mountain", "produces": ""}
         ]
       }
     ]
