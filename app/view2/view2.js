@@ -2,50 +2,53 @@
 
 angular.module('myApp.view2', ['ngRoute'])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view2', {
-    templateUrl: 'view2/view2.html',
-    //controller: 'View2Ctrl'
-  });
-}])
+    .config(['$routeProvider', function ($routeProvider) {
+        $routeProvider.when('/view2', {
+            templateUrl: 'view2/view2.html',
+            controller: 'View2Ctrl'
+        });
+    }])
 
-.controller('View2Ctrl', function($scope, $http, GameObjectsService) {
-    GameObjectsService.getGiants().then(function(giants){
-        $scope.giants = giants;
+    .controller('View2Ctrl', function ($scope, $http, GameObjectsService) {
+        GameObjectsService.getGiants().then(function (giants) {
+            $scope.giants = giants;
+        });
+
+        GameObjectsService.getAmbassadors().then(function (ambassadors) {
+            $scope.ambassadors = ambassadors;
+        });
+
+        GameObjectsService.getResources().then(function (resources) {
+            $scope.resources = resources;
+        });
+
+        $scope.lotSize = 3;
+
+        $scope.update = function () {
+            this.slot.ambassador = this.slotModel;
+        };
+
+        $scope.updateLotSize = function () {
+            console.log(this.lotSize);
+            if (this.lotSize > 10) {
+                this.lotSize = 10;
+            }
+            if (this.lotSize < 1) {
+                this.lotSize = 1;
+            }
+        };
+
+        $scope.calculateStuff = function () {
+            $scope.calculationResult = 10;
+
+            var abilities = [];
+            var g = $scope.giants.forEach(function (item, index, array) {
+                abilities = abilities.concat(item.get_active_abilities());
+            });
+
+            console.log('', abilities);
+        };
     });
-
-    GameObjectsService.getAmbassadors().then(function(ambassadors){
-        $scope.ambassadors = ambassadors;
-    });
-
-    GameObjectsService.getResources().then(function(resources){
-        $scope.resources = resources;
-        console.log('', resources);
-    });
-
-    $scope.lotSize = 3;
-
-    $scope.update = function(){
-      this.slot.ambassador = this.slotModel;
-      console.log(gameServiceFactory.all_giants[0]);
-    };
-
-    $scope.updateLotSize = function(){
-        console.log(this.lotSize);
-        if (this.lotSize > 10){
-            this.lotSize = 10;
-        }
-        if (this.lotSize < 1){
-            this.lotSize = 1;
-        }
-    };
-
-    $scope.calculateStuff = function() {
-        $scope.calculationResult = 10;
-
-        console.log('',$scope.giants);
-    };
-});
 //
 // {
 // |
