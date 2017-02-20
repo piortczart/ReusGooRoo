@@ -1,0 +1,13 @@
+[
+  {
+    "source": "Blueberry",
+    "level": 1,
+    "transmutations": [
+      {
+        "source": "Strawberry",
+        "aspect": "Leaf",
+        "aspect_level": 1
+      }
+    ]
+  }
+]

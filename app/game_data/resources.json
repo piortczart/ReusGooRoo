@@ -1,8 +1,8 @@
 [
-  {"name": "food"},
-  {"name": "wealth"},
-  {"name": "technology"},
-  {"name": "awe"},
-  {"name": "danger"},
-  {"name": "natura"}
+  {"Name": "food"},
+  {"Name": "wealth"},
+  {"Name": "technology"},
+  {"Name": "awe"},
+  {"Name": "danger"},
+  {"Name": "natura"}
 ]

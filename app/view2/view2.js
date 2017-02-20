@@ -9,7 +9,7 @@ angular.module('myApp.view2', ['ngRoute'])
         });
     }])
 
-    .controller('View2Ctrl', function ($scope, $http, GameObjectsService) {
+    .controller('View2Ctrl', function ($scope, $http, GameObjectsService, TileBenefits) {
         GameObjectsService.getGiants().then(function (giants) {
             $scope.giants = giants;
         });
@@ -25,6 +25,11 @@ angular.module('myApp.view2', ['ngRoute'])
         GameObjectsService.getBiomes().then(function (resources) {
             $scope.biomes = resources;
         });
+
+        GameObjectsService.getNaturalSources().then(function (sources) {
+            $scope.sources = sources;
+        });
+
 
         $scope.lotSize = 3;
 
@@ -45,7 +50,7 @@ angular.module('myApp.view2', ['ngRoute'])
         function is_biome_valid_for_ability(ability, biome_name) {
             for (var i = 0; i < ability.valid_biomes.length; i++) {
                 var suspected_biome = ability.valid_biomes[i];
-                if (suspected_biome == "all" || suspected_biome == biome_name) {
+                if (suspected_biome.name == "all" || suspected_biome.name == biome_name) {
                     return true;
                 }
             }
@@ -53,82 +58,122 @@ angular.module('myApp.view2', ['ngRoute'])
         }
 
         function get_ability_on_biome_product(ability, biome_name) {
-            return ability.name + " on " + biome_name;
+            var result = ability.valid_biomes.filter(function (biome) {
+                return biome.name == biome_name;
+            })[0];
+            if (result === undefined) {
+                return ability.name + " on " + biome_name + "?";
+            }
+            return result.produces;
         }
 
-        $scope.calculateStuff = function () {
-            $scope.calculationResult = 10;
+        // Calculate the symbiosis for the source with given index when there is the list of sources around.
+        function calculate_symbiosis(sources, item_index, symbioses_benefits) {
+            var base = sources[item_index];
 
-            // Prepare a list of all abilities giants currently have.
-            var abilities = [];
-            $scope.giants.forEach(function (item) {
-                abilities = abilities.concat(item.get_active_abilities());
+            // Calculate what's next to it.
+            var next_to_it = [];
+            if (item_index > 0) {
+                // Add the previous one.
+                next_to_it.push(sources[item_index - 1]);
+            }
+            if (item_index < sources.length - 1) {
+                // Add the next one.
+                next_to_it.push(sources[item_index + 1]);
+            }
+
+            // Add the regular source yield
+            if (symbioses_benefits[item_index] === undefined){
+                symbioses_benefits[item_index] = new TileBenefits($scope.resources);
+            }
+            symbioses_benefits[item_index].add_benefits(base.Levels[0].Yields);
+
+            var symbioses = base.Levels[0].Symbioses;
+
+            var nextTos = symbioses.filter(function (symbiosis) {
+                return symbiosis.Type == "ifNextTo"
             });
-
-            var abilities_biomes = [];
-            abilities.forEach(function (ability) {
-                $scope.biomes.forEach(function (biome) {
-                    if (is_biome_valid_for_ability(ability, biome.name)) {
-                        abilities_biomes.push({"ability": ability, "biome": biome})
+            nextTos.forEach(function (symbiosis) {
+                next_to_it.forEach(function (other_source) {
+                    if ($.inArray(other_source.Name, symbiosis.OtherSource) != -1) {
+                        symbioses_benefits[item_index].add_benefits(symbiosis.Benefits);
                     }
-                });
-            });
-
-            var magic = [];
-            abilities_biomes.forEach(function (item1) {
-                abilities_biomes.forEach(function (item2) {
-                    abilities_biomes.forEach(function (item3) {
-                        magic.push([
-                            get_ability_on_biome_product(item1.ability, item1.biome.name),
-                            get_ability_on_biome_product(item2.ability, item2.biome.name),
-                            get_ability_on_biome_product(item3.ability, item3.biome.name)])
-                    })
                 })
             });
 
-            console.log('', magic);
+            //console.log("Sources: ", sources);
+            //console.log("Benefits: ", symbioses_benefits);
+        }
+
+        $scope.calculateStuff = function () {
+            var magic = [];
+
+            var top_food = 0;
+            var best;
+
+            $scope.sources.slice(0,12).forEach(function (source1) {
+                $scope.sources.slice(0,12).forEach(function (source2) {
+                    var sources = [source1, source2];
+                    var symbioses_benefits = [];
+                    for (var i = 0; i < sources.length; i++) {
+                        var symbiosis = calculate_symbiosis(sources, i, symbioses_benefits);
+                    }
+                    console.log("Sources: ", sources.map(function (source) {
+                        return source.Name
+                    }));
+
+                    var b0 = symbioses_benefits[0].get_benefit("food");
+                    console.log("Benefits[0] food: ", b0);
+                    console.log("Benefits[1] food: ", symbioses_benefits[1].get_benefits());
+
+                    var total_food = 0;
+                    symbioses_benefits.forEach(function (symbiosis_benefit) {
+                        total_food += symbiosis_benefit.get_benefit("food").Amount;
+                    })
+
+                    if (total_food > top_food) {
+                        top_food = total_food;
+                        best = {
+                            "s": [source1.Name, source2.Name],
+                            "b": symbioses_benefits.map(function(sb){return JSON.stringify(sb.get_benefits(), null, "  ");})};
+                    }
+                })
+            })
+
+            console.log(JSON.stringify(best, null, "  "));
+
+            // $scope.calculationResult = 10;
+            //
+            // // Prepare a list of all abilities giants currently have.
+            // var abilities = [];
+            // $scope.giants.forEach(function (item) {
+            //     abilities = abilities.concat(item.get_active_abilities());
+            // });
+            //
+            // var abilities_biomes = [];
+            // abilities.forEach(function (ability) {
+            //     $scope.biomes.forEach(function (biome) {
+            //         if (is_biome_valid_for_ability(ability, biome.name)) {
+            //             abilities_biomes.push({"ability": ability, "biome": biome})
+            //         }
+            //     });
+            // });
+            //
+            // var magic = [];
+            // abilities_biomes.forEach(function (item1) {
+            //     abilities_biomes.forEach(function (item2) {
+            //         abilities_biomes.forEach(function (item3) {
+            //             magic.push([
+            //                 get_ability_on_biome_product(item1.ability, item1.biome.name),
+            //                 get_ability_on_biome_product(item2.ability, item2.biome.name),
+            //                 get_ability_on_biome_product(item3.ability, item3.biome.name)])
+            //         })
+            //     })
+            // });
+            //
+            // console.log('', magic);
+
+
         };
     });
-
-
-//
-// {
-// |
-// |{{NaturalSource
-// |bodystyle      = float:none;
-// |name           = Blueberry
-//     |image          = [[File:BLUE BERRY.png]]
-// |level          = 1
-//     |aspects        = 1
-//     |food           = 5
-//     |natura         = 1
-//     |symbiosis1     = ''Grove'': {{Food|+10}} if next to an [[Apple Tree]], [[Dandelion]] or [[Strawberry]].
-//     |transmutation1 = [[Strawberry]]
-//     |transmutation2 = [[Apple Tree]]
-// }}
-// |{{NaturalSource
-// |bodystyle      = float:none;
-// |name           = Great Blueberry
-//     |image          = [[File:BLUE BERRY SMALL.png]]
-// |level          = 2
-//     |aspects        = 2
-//     |food           = 10
-//     |natura         = 1
-//     |symbiosis1     = ''Grove'': {{Food|+20}} if next to an [[Apple Tree]], [[Dandelion]] or [[Strawberry]].
-//     |transmutation1 = [[Strawberry|Great Strawberry]]
-//     |transmutation2 = [[Apple Tree|Great Apple Tree]]
-// }}
-// |{{NaturalSource
-// |bodystyle      = float:none;
-// |name           = Superior Blueberry
-//     |image          = [[File:BLUE BERRY MEDIUM.png]]
-// |level          = 3
-//     |aspects        = 3
-//     |food           = 20
-//     |natura         = 2
-//     |symbiosis1     = ''Grove'': {{Food|+40}} if next to an [[Apple Tree]], [[Dandelion]] or [[Strawberry]].
-//     |transmutation1 = [[Strawberry|Superior Strawberry]]
-//     |transmutation2 = [[Apple Tree|Superior Apple Tree]]
-// }}
-// |}
 

@@ -137,10 +137,10 @@
           "sdaa"
         ],
         "valid_biomes": [
-          {"name": "forest", "produces": ""},
-          {"name": "swamp", "produces": ""},
-          {"name": "desert", "produces": ""},
-          {"name": "mountain", "produces": ""}
+          {"name": "forest", "produces": "Stone"},
+          {"name": "swamp", "produces": "Marble"},
+          {"name": "desert", "produces": "Stone"},
+          {"name": "mountain", "produces": "Stone"}
         ]
       }
     ]

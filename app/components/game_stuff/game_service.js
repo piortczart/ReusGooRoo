@@ -7,7 +7,25 @@ angular.module('myApp').value('ValueMapper', function (target, source) {
     return target;
 });
 
-angular.module('myApp').factory('GameObjectsService', function ($http, Giant, Ambassador, Resource, Biome) {
+// angular.module('myApp').factory('Cache', function () {
+//     var resources = [];
+//
+//     function store(new_resources){
+//         resources = new_resources;
+//     }
+//
+//     function get_all(){
+//         return resources;
+//     }
+//
+//     return{
+//         store: store,
+//         get: get_all
+//     }
+// });
+
+angular.module('myApp').factory('GameObjectsService', function ($http, Giant, Ambassador, Resource, Biome, NaturalSource) {
+
     return {
         get: function (file_name, mapper) {
             return $http
@@ -32,6 +50,10 @@ angular.module('myApp').factory('GameObjectsService', function ($http, Giant, Am
 
         getBiomes: function () {
             return this.get('biomes', Biome.fromJson);
+        },
+
+        getNaturalSources: function () {
+            return this.get('natural_sources', NaturalSource.fromJson);
         }
     };
 });
