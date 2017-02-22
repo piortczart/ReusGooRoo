@@ -34,7 +34,11 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.lotSize = 3;
 
         $scope.update = function () {
+            // "this" in this context is the angular's "ChildScope"
+            // we have a "slot" here (connected to a giant) and a "slotModel" which is the thing bound to the combo box
             this.slot.ambassador = this.slotModel;
+
+            console.log('', $scope.giants[0].get_active_abilities()[0].level);
         };
 
         $scope.updateLotSize = function () {
@@ -82,8 +86,16 @@ angular.module('myApp.view2', ['ngRoute'])
                 next_to_it.push(sources[item_index + 1]);
             }
 
+            // TEMP: We are only interested in level 1 sources
+            var source_level = base.Levels.filter(function (l) {
+                return l.Level == 1;
+            })[0];
+            if (source_level === undefined){
+                return;
+            }
+
             // Add the regular source yield
-            if (symbioses_benefits[item_index] === undefined){
+            if (symbioses_benefits[item_index] === undefined) {
                 symbioses_benefits[item_index] = new TileBenefits($scope.resources);
             }
             symbioses_benefits[item_index].add_benefits(base.Levels[0].Yields);
@@ -111,20 +123,18 @@ angular.module('myApp.view2', ['ngRoute'])
             var top_food = 0;
             var best;
 
-            $scope.sources.slice(0,12).forEach(function (source1) {
-                $scope.sources.slice(0,12).forEach(function (source2) {
+            $scope.sources.slice(0, 50).forEach(function (source1) {
+                $scope.sources.slice(0, 50).forEach(function (source2) {
                     var sources = [source1, source2];
                     var symbioses_benefits = [];
+                    // symbioses_benefits should get filled.
                     for (var i = 0; i < sources.length; i++) {
-                        var symbiosis = calculate_symbiosis(sources, i, symbioses_benefits);
+                        calculate_symbiosis(sources, i, symbioses_benefits);
                     }
                     console.log("Sources: ", sources.map(function (source) {
                         return source.Name
                     }));
 
-                    var b0 = symbioses_benefits[0].get_benefit("food");
-                    console.log("Benefits[0] food: ", b0);
-                    console.log("Benefits[1] food: ", symbioses_benefits[1].get_benefits());
 
                     var total_food = 0;
                     symbioses_benefits.forEach(function (symbiosis_benefit) {
@@ -135,45 +145,15 @@ angular.module('myApp.view2', ['ngRoute'])
                         top_food = total_food;
                         best = {
                             "s": [source1.Name, source2.Name],
-                            "b": symbioses_benefits.map(function(sb){return JSON.stringify(sb.get_benefits(), null, "  ");})};
+                            "b": symbioses_benefits.map(function (sb) {
+                                return JSON.stringify(sb.get_benefits(), null, "  ");
+                            })
+                        };
                     }
                 })
             })
 
             console.log(JSON.stringify(best, null, "  "));
-
-            // $scope.calculationResult = 10;
-            //
-            // // Prepare a list of all abilities giants currently have.
-            // var abilities = [];
-            // $scope.giants.forEach(function (item) {
-            //     abilities = abilities.concat(item.get_active_abilities());
-            // });
-            //
-            // var abilities_biomes = [];
-            // abilities.forEach(function (ability) {
-            //     $scope.biomes.forEach(function (biome) {
-            //         if (is_biome_valid_for_ability(ability, biome.name)) {
-            //             abilities_biomes.push({"ability": ability, "biome": biome})
-            //         }
-            //     });
-            // });
-            //
-            // var magic = [];
-            // abilities_biomes.forEach(function (item1) {
-            //     abilities_biomes.forEach(function (item2) {
-            //         abilities_biomes.forEach(function (item3) {
-            //             magic.push([
-            //                 get_ability_on_biome_product(item1.ability, item1.biome.name),
-            //                 get_ability_on_biome_product(item2.ability, item2.biome.name),
-            //                 get_ability_on_biome_product(item3.ability, item3.biome.name)])
-            //         })
-            //     })
-            // });
-            //
-            // console.log('', magic);
-
-
         };
     });
 
