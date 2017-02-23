@@ -1,1 +1,3 @@
-This project consists of two parts, a avascript client-side web application which helps to understand the game Reus and a .NET application which parses some pages on the Reus Wiki and downloads data utilized by the web client.
+This project consists of two parts:
+1. a javascript client-side web application which helps to understand the game Reus
+2. a .NET application which parses some pages on the Reus Wiki and downloads data utilized by the web client
