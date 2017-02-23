@@ -1,0 +1,9 @@
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\bin\Debug\ReusWikiDataDownload.exe.config
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\bin\Debug\ReusWikiDataDownload.exe
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\bin\Debug\ReusWikiDataDownload.pdb
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\obj\Debug\ReusWikiDataDownload.csprojResolveAssemblyReference.cache
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\obj\Debug\ReusWikiDataDownload.exe
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\obj\Debug\ReusWikiDataDownload.pdb
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\bin\Debug\HtmlAgilityPack.dll
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\bin\Debug\HtmlAgilityPack.pdb
+c:\users\efu\documents\visual studio 2017\Projects\ReusWikiDataDownload\ReusWikiDataDownload\bin\Debug\HtmlAgilityPack.xml

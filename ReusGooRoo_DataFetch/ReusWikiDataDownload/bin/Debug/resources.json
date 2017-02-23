@@ -1,0 +1,4764 @@
+[
+  {
+    "Name": "Blueberry",
+    "Levels": [
+      {
+        "Name": "Blueberry",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grove\u0027\u0027: Food|+10 if next to an [[Apple Tree]], [[Dandelion]] or [[Strawberry]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Apple Tree", "Dandelion", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 10
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": {
+          "Name": "Fruit Plant",
+          "Level": 1,
+          "Description": "Requires a level 1 Fruit Plant ability."
+        }
+      },
+      {
+        "Name": "Great Blueberry",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grove\u0027\u0027: Food|+20 if next to an [[Apple Tree]], [[Dandelion]] or [[Strawberry]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Apple Tree", "Dandelion", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 20
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": {
+          "Name": "Fruit Plant",
+          "Level": 2,
+          "Description": "Requires a level 2 Fruit Plant ability. "
+        }
+      },
+      {
+        "Name": "Superior Blueberry",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grove\u0027\u0027: Food|+40 if next to an [[Apple Tree]], [[Dandelion]] or [[Strawberry]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Apple Tree", "Dandelion", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 40
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": {
+          "Name": "Fruit Plant",
+          "Level": 3,
+          "Description": "Requires a level 3 Fruit Plant ability."
+        }
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Strawberry",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Leaf"
+        }
+      },
+      {
+        "Target": "Apple Tree",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Strawberry",
+    "Levels": [
+      {
+        "Name": "Strawberry",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Adaptation\u0027\u0027: Food|+3 if next to [[Blueberry]] or [[Strawberry]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Blueberry", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 3
+              }
+            ]
+          },
+          {
+            "Description": "Awe|+5 if next to [[Dandelion]] or [[Strawberry]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Dandelion", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Awe",
+                "Amount": 5
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Strawberry",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "technology",
+            "Amount": 4
+          },
+          {
+            "Name": "natura",
+            "Amount": 6
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Adaptation\u0027\u0027: Food|+15 if next to [[Blueberry]] or [[Strawberry]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Blueberry", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 15
+              }
+            ]
+          },
+          {
+            "Description": "Awe|+10 if next to [[Dandelion]] or [[Strawberry]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Dandelion", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Awe",
+                "Amount": 10
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Strawberry",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "technology",
+            "Amount": 8
+          },
+          {
+            "Name": "natura",
+            "Amount": 9
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Adaptation\u0027\u0027: Food|+30 if next to [[Blueberry]] or [[Strawberry]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Blueberry", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 30
+              }
+            ]
+          },
+          {
+            "Description": "Awe|+25 if next to [[Dandelion]] or [[Strawberry]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Dandelion", "Strawberry" ],
+            "Benefits": [
+              {
+                "Name": "Awe",
+                "Amount": 25
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Pear Tree",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Fruit"
+        }
+      },
+      {
+        "Target": "Cherry Tree",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Growth"
+        }
+      },
+      {
+        "Target": "Plum Tree",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Leaf"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Apple Tree",
+    "Levels": [
+      {
+        "Name": "Apple Tree",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 6
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Meadow\u0027\u0027: Food|+8 and Natura|+2 for each [[Animals|Animal Nest]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 8
+              },
+              {
+                "Name": "Natura",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Apple Tree",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 6
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Meadow\u0027\u0027: Food|+16 and Natura|+4 for each [[Animals|Animal Nest]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 16
+              },
+              {
+                "Name": "Natura",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Apple Tree",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Meadow\u0027\u0027: Food|+32 and Natura|+8 for each [[Animals|Animal Nest]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 32
+              },
+              {
+                "Name": "Natura",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Pear Tree",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Fruit"
+        }
+      },
+      {
+        "Target": "Cherry Tree",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Growth"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Pear Tree",
+    "Levels": [
+      {
+        "Name": "Pear Tree",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Orchard\u0027\u0027: Food|+10 and Awe|+5 for each [[Plant]] standing next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plant" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 10
+              },
+              {
+                "Name": "Awe",
+                "Amount": 5
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Pear Tree",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Orchard\u0027\u0027: Food|+20 and Awe|+10 for each [[Plant]] standing next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plant" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 20
+              },
+              {
+                "Name": "Awe",
+                "Amount": 10
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Pear Tree",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Orchard\u0027\u0027: Food|+40 and Awe|+15 for each [[Plant]] standing next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plant" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 40
+              },
+              {
+                "Name": "Awe",
+                "Amount": 15
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Orange Tree",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Plum Tree",
+    "Levels": [
+      {
+        "Name": "Plum Tree",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 15
+          },
+          {
+            "Name": "technology",
+            "Amount": 15
+          },
+          {
+            "Name": "natura",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Magnificent Ground\u0027\u0027: Awe|+10 for each [[Minerals|Mineral]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Awe",
+                "Amount": 10
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Uncontested Ground\u0027\u0027: Natura|+12 and Food|+20 if there is no other [[Plants|Plant]] within Natura Range.",
+            "Type": "ifNoOtherWithinNatura",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Natura",
+                "Amount": 12
+              },
+              {
+                "Name": "Food",
+                "Amount": 20
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Plum Tree",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 30
+          },
+          {
+            "Name": "technology",
+            "Amount": 30
+          },
+          {
+            "Name": "natura",
+            "Amount": 10
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Magnificent Ground\u0027\u0027: Awe|+25 for each [[Minerals|Mineral]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Awe",
+                "Amount": 25
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Uncontested Ground\u0027\u0027: Natura|+24 and Food|+50 if there is no other [[Plants|Plant]] within Natura Range.",
+            "Type": "ifNoOtherWithinNatura",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Natura",
+                "Amount": 24
+              },
+              {
+                "Name": "Food",
+                "Amount": 50
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Orange Tree",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Fruit"
+        }
+      },
+      {
+        "Target": "Sunflower",
+        "Aspect": {
+          "Strength": "Sublime Toxic or",
+          "Name": "Leaf"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Nightshade",
+    "Levels": [
+      {
+        "Name": "Nightshade",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 3
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Technology|+15 and Natura|+7 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 15
+              },
+              {
+                "Name": "Natura",
+                "Amount": 7
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Nightshade",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Technology|+25 and Natura|+10 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 25
+              },
+              {
+                "Name": "Natura",
+                "Amount": 10
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Nightshade",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Technology|+50 and Natura|+16 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 50
+              },
+              {
+                "Name": "Natura",
+                "Amount": 16
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Foxglove",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Toxic"
+        }
+      },
+      {
+        "Target": "Plum Tree",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Leaf"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Cherry Tree",
+    "Levels": [
+      {
+        "Name": "Cherry Tree",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Food|+15 for each [[Minerals|Mineral]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 15
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Noble Gardens\u0027\u0027: Food|+10 if next to [[Silver]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Silver" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 10
+              }
+            ]
+          },
+          {
+            "Description": "Food|+20 if next to [[Gold]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Gold" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 20
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Cherry Tree",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Food|+30 for each [[Minerals|Mineral]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 30
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Noble Gardens\u0027\u0027: Food|+25 if next to [[Silver]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Silver" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 25
+              }
+            ]
+          },
+          {
+            "Description": "Food|+50 if next to [[Gold]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Gold" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 50
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Orange Tree",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Orange Tree",
+    "Levels": [
+      {
+        "Name": "Orange Tree",
+        "MaxAspects": 7,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 25
+          },
+          {
+            "Name": "natura",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Rampant Growth\u0027\u0027: Food|+3 for each Natura on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [ "natura" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 3
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Biodiversity\u0027\u0027: Food|+27 for each different [[Natural Sources|Natural Source]] type within Natura Range, excluding this \u0027\u0027\u0027Orange Tree\u0027\u0027\u0027.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Natural Sources" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 27
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Foxglove",
+    "Levels": [
+      {
+        "Name": "Foxglove",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 6
+          },
+          {
+            "Name": "natura",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Lush\u0027\u0027: Technology|+2 for each Natura on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [ "natura" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Foxglove",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 12
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Lush\u0027\u0027: Technology|+2.5 for each Natura on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [ "natura" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Foxglove",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 24
+          },
+          {
+            "Name": "natura",
+            "Amount": 3
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Lush\u0027\u0027: Technology|+3 for each Natura on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [ "natura" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 3
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Sunflower",
+        "Aspect": {
+          "Strength": "Sublime Toxic or",
+          "Name": "Leaf"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Sunflower",
+    "Levels": [
+      {
+        "Name": "Sunflower",
+        "MaxAspects": 7,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 22
+          },
+          {
+            "Name": "natura",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Fertile Biome\u0027\u0027: Natura|+8 for each different \u0027\u0027\u0027Forest Plant\u0027\u0027\u0027 within its Natura Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "\u0027\u0027Bio fuel\u0027\u0027: Awe|+1 and Technology|+1 for each Food|5 within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [],
+            "Benefits": [
+              {
+                "Name": "Awe",
+                "Amount": 1
+              },
+              {
+                "Name": "Technology",
+                "Amount": 1
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Oak",
+    "Levels": [
+      {
+        "Name": "Oak",
+        "MaxAspects": 7,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Rich Forest\u0027\u0027: food|+80 and natura|+25 if there is a [[minerals|mineral]] within natura range.",
+            "Type": "ifSourceWithinNatura",
+            "OtherSource": [ "minerals" ],
+            "Benefits": [
+              {
+                "Name": "food",
+                "Amount": 80
+              },
+              {
+                "Name": "natura",
+                "Amount": 25
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Fabled Forest\u0027\u0027: All [[animals]] within natura range gain food|+6 and awe|+2.",
+            "Type": "allWithinNaturaRange",
+            "OtherSource": [ "animals" ],
+            "Benefits": [
+              {
+                "Name": "food",
+                "Amount": 6
+              },
+              {
+                "Name": "awe",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Rabbit",
+    "Levels": [
+      {
+        "Name": "Rabbit",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Pack\u0027\u0027: Food|+2 if another [[Rabbit]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Rabbit" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Rabbit",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Pack\u0027\u0027: Food|+5 if another [[Rabbit]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Rabbit" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 5
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Rabbit",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Pack\u0027\u0027: Food|+10 if another [[Rabbit]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Rabbit" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 10
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Deer",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Herd"
+        }
+      },
+      {
+        "Target": "Wisent",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Hunt"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Chicken",
+    "Levels": [
+      {
+        "Name": "Chicken",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Free-Range\u0027\u0027: Food|+3 if a [[Blueberry]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Blueberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 3
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Chicken",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Free-Range\u0027\u0027: Food|+5 if a [[Blueberry]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Blueberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 5
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Chicken",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Free-Range\u0027\u0027: Food|+10 if a [[Blueberry]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Blueberry" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 10
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Beaver",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Hunt"
+        }
+      },
+      {
+        "Target": "Rabbit",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Herd"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Dandelion",
+    "Levels": [
+      {
+        "Name": "Dandelion",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Taproot\u0027\u0027: Technology|+8 and Natura|+4 if next to a [[Plants|Plant]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 8
+              },
+              {
+                "Name": "Natura",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Dandelion",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Taproot\u0027\u0027: Technology|+16 and Natura|+8 if next to a [[Plants|Plant]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 16
+              },
+              {
+                "Name": "Natura",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Dandelion",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Taproot\u0027\u0027: Technology|+28 and Natura|+16 if next to a [[Plants|Plant]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 28
+              },
+              {
+                "Name": "Natura",
+                "Amount": 16
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Nightshade",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Toxic"
+        }
+      },
+      {
+        "Target": "Strawberry",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Growth"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Boar",
+    "Levels": [
+      {
+        "Name": "Boar",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "wealth",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Legendary Game\u0027\u0027: Wealth|+2 for each Danger|1 this [[Boar]] has.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Boar",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 6
+          },
+          {
+            "Name": "wealth",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Legendary Game\u0027\u0027: Wealth|+3 for each Danger|1 this [[Boar]] has.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Boar",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "wealth",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Legendary Game\u0027\u0027: Wealth|+4 for each Danger|1 this [[Boar]] has.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Bear",
+        "Aspect": {
+          "Strength": "Sublime Exotic or",
+          "Name": "Predator"
+        }
+      },
+      {
+        "Target": "Moose",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Hunt"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Deer",
+    "Levels": [
+      {
+        "Name": "Deer",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grazer\u0027\u0027: Food|+4 and Awe|+2 if a  [[Dandelion]], [[Foxglove]] or [[Nightshade]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Dandelion", "Foxglove", "Nightshade" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 4
+              },
+              {
+                "Name": "Awe",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Deer",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grazer\u0027\u0027: Food|+8 and Awe|+4 if a  [[Dandelion]], [[Foxglove]] or [[Nightshade]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Dandelion", "Foxglove", "Nightshade" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 8
+              },
+              {
+                "Name": "Awe",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Deer",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grazer\u0027\u0027: Food|+16 and Awe|+8 if a  [[Dandelion]], [[Foxglove]] or [[Nightshade]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Dandelion", "Foxglove", "Nightshade" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 16
+              },
+              {
+                "Name": "Awe",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Moose",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Hunt"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Beaver",
+    "Levels": [
+      {
+        "Name": "Beaver",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 2
+          },
+          {
+            "Name": "wealth",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Forester\u0027\u0027: Wealth|+1 for each patch within Animal-Range with at least Natura|7.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Beaver",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "wealth",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Forester\u0027\u0027: Wealth|+2 for each patch within Animal-Range with at least Natura|14.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Beaver",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "wealth",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Forester\u0027\u0027: Wealth|+4 for each patch within Animal-Range with at least Natura|32.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Boar",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Hunt"
+        }
+      },
+      {
+        "Target": "Wisent",
+        "Aspect": {
+          "Strength": "Greater Hunt or",
+          "Name": "Herd"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Stoat",
+    "Levels": [
+      {
+        "Name": "Stoat",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Royal Fur\u0027\u0027: Wealth|+2 if there is a [[Mineral]] within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Stoat",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Royal Fur\u0027\u0027: Wealth|+4 if there is a [[Mineral]] within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Stoat",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Royal Fur\u0027\u0027: Wealth|+8 if there is a [[Mineral]] within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Beaver",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Exotic"
+        }
+      },
+      {
+        "Target": "Fox",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Predator"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Moose",
+    "Levels": [
+      {
+        "Name": "Moose",
+        "MaxAspects": 6,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Large Habitat\u0027\u0027: Food|+15 if there is no [[Boar]], [[Wolf]] or [[Wisent]] within Animal-Range.",
+            "Type": "ifNotWithinRange",
+            "OtherSource": [ "Boar", "Wolf", "Wisent" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 15
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Bountiful Habitat\u0027\u0027: Food|+6 for each [[Plant]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Plant" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 6
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Wisent",
+    "Levels": [
+      {
+        "Name": "Wisent",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "wealth",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Large Grazers\u0027\u0027: Food|+1 for each Natura|4 on this Patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [ "natura" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 1
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Peaceful Coexistance\u0027\u0027: Food|+4 and Wealth|+2 if there is a [[Deer]] or [[Rabbit]] within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Deer", "Rabbit" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 4
+              },
+              {
+                "Name": "Wealth",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Wisent",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 6
+          },
+          {
+            "Name": "wealth",
+            "Amount": 3
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Large Grazers\u0027\u0027: Food|+2 for each Natura|4 on this Patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [ "natura" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 2
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Peaceful Coexistance\u0027\u0027: Food|+8 and Wealth|+4 if there is a [[Deer]] or [[Rabbit]] within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Deer", "Rabbit" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 8
+              },
+              {
+                "Name": "Wealth",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Moose",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Hunt"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Bear",
+    "Levels": [
+      {
+        "Name": "Bear",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "wealth",
+            "Amount": 20
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Legendary Cave\u0027\u0027: Wealth|+2 for each Danger|1 on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 2
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Ruler of the Woods\u0027\u0027: Food|+3 for each [[Deer]], [[Wisent]] or [[Boar]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Deer", "Wisent", "Boar" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 3
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Wolf",
+    "Levels": [
+      {
+        "Name": "Wolf",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 6
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Hunter\u0027\u0027: Wealth|+3 and Danger|+1 for each [[Deer]], [[Wisent]] or [[Boar]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Deer", "Wisent", "Boar" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 3
+              },
+              {
+                "Name": "Danger",
+                "Amount": 1
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Dangerous Cave\u0027\u0027: All [[Minerals]] within Animal-Range gain Wealth|+10, but also gives Danger|+1 to the [[Wolf]].",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Wolf",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 12
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Hunter\u0027\u0027: Wealth|+5 and Danger|+2 for each [[Deer]], [[Wisent]] or [[Boar]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Deer", "Wisent", "Boar" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 5
+              },
+              {
+                "Name": "Danger",
+                "Amount": 2
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Dangerous Cave\u0027\u0027: All [[Minerals]] within Animal-Range gain Wealth|+15, but also gives Danger|+1 to the [[Wolf]].",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Bear",
+        "Aspect": {
+          "Strength": "Sublime Exotic or",
+          "Name": "Predator"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Fox",
+    "Levels": [
+      {
+        "Name": "Fox",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Hunter\u0027\u0027: Wealth|+2 for each [[Rabbit]], [[Beaver]] or [[Chicken]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Rabbit", "Beaver", "Chicken" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Fox",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Hunter\u0027\u0027: Wealth|+4 for each [[Rabbit]], [[Beaver]] or [[Chicken]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Rabbit", "Beaver", "Chicken" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Fox",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Hunter\u0027\u0027: Wealth|+8 for each [[Rabbit]], [[Beaver]] or [[Chicken]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Rabbit", "Beaver", "Chicken" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Boar",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Hunt"
+        }
+      },
+      {
+        "Target": "Wolf",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Predator"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Papaya",
+    "Levels": [
+      {
+        "Name": "Papaya",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 6
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Overgrowth\u0027\u0027: Food|+15 and Awe|+5 if at least Natura|8.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Papaya",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 12
+          },
+          {
+            "Name": "natura",
+            "Amount": 6
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Overgrowth\u0027\u0027: Food|+30 and Awe|+10 if at least Natura|14.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Papaya",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 24
+          },
+          {
+            "Name": "natura",
+            "Amount": 12
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Overgrowth\u0027\u0027: Food|+60 and Awe|+15 if at least Natura|22.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Cacao Tree",
+        "Aspect": {
+          "Strength": "Sublime Growth or",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Withered Shrub",
+    "Levels": [
+      {
+        "Name": "Withered Shrub",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "natura",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Blooming Ground\u0027\u0027: Natura|+5 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Natura",
+                "Amount": 5
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Withered Shrub",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "natura",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Blooming Ground\u0027\u0027: Natura|+9 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Natura",
+                "Amount": 9
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Withered Shrub",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "natura",
+            "Amount": 10
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Blooming Ground\u0027\u0027: Natura|+18 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Natura",
+                "Amount": 18
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Barrel Cactus",
+        "Aspect": {
+          "Strength": "Lesser Leaf or",
+          "Name": "Toxic"
+        }
+      },
+      {
+        "Target": "Agave",
+        "Aspect": {
+          "Strength": "Lesser Growth or",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Goat",
+    "Levels": [
+      {
+        "Name": "Goat",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grazer\u0027\u0027: Food|+6 \u0027\u0027\u0027on each\u0027\u0027\u0027 patch within Animal-Range that has a [[Plant]].",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Goat",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 3
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grazer\u0027\u0027: Food|+15 \u0027\u0027\u0027on each\u0027\u0027\u0027 patch within Animal-Range that has a [[Plant]].",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Goat",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 6
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Grazer\u0027\u0027: Food|+30 \u0027\u0027\u0027on each\u0027\u0027\u0027 patch within Animal-Range that has a [[Plant]].",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Javelina",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Herd"
+        }
+      },
+      {
+        "Target": "Coyote",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Predator"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Agave",
+    "Levels": [
+      {
+        "Name": "Agave",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 3
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Bushlands\u0027\u0027: Food|+10 if next to another [[Plants|Plant]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 10
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Agave",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Bushlands\u0027\u0027: Food|+20 if next to another [[Plants|Plant]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 20
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Agave",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Bushlands\u0027\u0027: Food|+40 if next to another [[Plants|Plant]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 40
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Date Palm",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Fruit"
+        }
+      },
+      {
+        "Target": "Desert Lime",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Growth"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Armadillo",
+    "Levels": [
+      {
+        "Name": "Armadillo",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 1
+          },
+          {
+            "Name": "wealth",
+            "Amount": 3
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Shelter\u0027\u0027: Food|+1 for each [[Mineral]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 1
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Armadillo",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 2
+          },
+          {
+            "Name": "wealth",
+            "Amount": 6
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Shelter\u0027\u0027: Food|+2 for each [[Mineral]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Armadillo",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "wealth",
+            "Amount": 12
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Shelter\u0027\u0027: Food|+4 for each [[Mineral]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Javelina",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Hunt"
+        }
+      },
+      {
+        "Target": "Grey Fox",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Exotic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Date Palm",
+    "Levels": [
+      {
+        "Name": "Date Palm",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Sweet Fruits\u0027\u0027: Food|+8 for each [[Animals|Animal Nest]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Date Palm",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 12
+          },
+          {
+            "Name": "natura",
+            "Amount": 7
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Sweet Fruits\u0027\u0027: Food|+16 for each [[Animals|Animal Nest]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 16
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Date Palm",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 12
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Sweet Fruits\u0027\u0027: Food|+32 for each [[Animals|Animal Nest]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 32
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Cardon Cactus",
+        "Aspect": {
+          "Strength": "Sublime Growth or",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Javelina",
+    "Levels": [
+      {
+        "Name": "Javelina",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 3
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Aggressive Pack\u0027\u0027: Food|+3 and Danger|+1 for each other [[Javelina]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Javelina" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 3
+              },
+              {
+                "Name": "Danger",
+                "Amount": 1
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Javelina",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Aggressive Pack\u0027\u0027: Food|+6 and Danger|+2 for each other [[Javelina]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Javelina" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 6
+              },
+              {
+                "Name": "Danger",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Javelina",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 12
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Aggressive Pack\u0027\u0027: Food|+12 and Danger|+3 for each other [[Javelina]] within Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Javelina" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 12
+              },
+              {
+                "Name": "Danger",
+                "Amount": 3
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Bighorn",
+        "Aspect": {
+          "Strength": "Sublime Hunt or",
+          "Name": "Herd"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Desert Lime",
+    "Levels": [
+      {
+        "Name": "Desert Lime",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 15
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Solitude\u0027\u0027: Food|+35 and Awe|+15 for each patch \u0027\u0027without\u0027\u0027 a [[Plants|Plant]], [[Animals|Animal]] or [[Minerals|Mineral]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plants", "Animals", "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 35
+              },
+              {
+                "Name": "Awe",
+                "Amount": 15
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Oasis\u0027\u0027: Technology|+15 and Natura|+5 for each [[Plants|Plant]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 15
+              },
+              {
+                "Name": "Natura",
+                "Amount": 5
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Desert Lime",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 30
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Solitude\u0027\u0027: Food|+50 and Awe|+25 for each patch \u0027\u0027without\u0027\u0027 a [[Plants|Plant]], [[Animals|Animal]] or [[Minerals|Mineral]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plants", "Animals", "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 50
+              },
+              {
+                "Name": "Awe",
+                "Amount": 25
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Oasis\u0027\u0027: Technology|+30 and Natura|+8 for each [[Plants|Plant]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 30
+              },
+              {
+                "Name": "Natura",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Cardon Cactus",
+        "Aspect": {
+          "Strength": "Sublime Growth or",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Coyote",
+    "Levels": [
+      {
+        "Name": "Coyote",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 3
+          },
+          {
+            "Name": "wealth",
+            "Amount": 5
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Javelina Predators\u0027\u0027: Wealth|+5 for each [[Javelina]] and [[Goat]] in Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "\u0027\u0027Dwellers for Food\u0027\u0027: Range|+1 if not next to an Animal.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Coyote",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 6
+          },
+          {
+            "Name": "wealth",
+            "Amount": 10
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Javelina Predators\u0027\u0027: Wealth|+8 for each [[Javelina]] and [[Goat]] in Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "\u0027\u0027Dwellers for Food\u0027\u0027: Range|+1 if not next to an Animal.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Bighorn",
+        "Aspect": {
+          "Strength": "Sublime Hunt or",
+          "Name": "Herd"
+        }
+      },
+      {
+        "Target": "Bobcat",
+        "Aspect": {
+          "Strength": "Sublime Predator or",
+          "Name": "Exotic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Cardon Cactus",
+    "Levels": [
+      {
+        "Name": "Cardon Cactus",
+        "MaxAspects": 6,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 15
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Unhindered Growth\u0027\u0027: Food|+25 for each [[Minerals|Mineral]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 25
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Wasteland King\u0027\u0027: Gains 50% of the Wealth of all [[Minerals]] within Natura Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Bighorn",
+    "Levels": [
+      {
+        "Name": "Bighorn",
+        "MaxAspects": 6,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Rockjumper\u0027\u0027: Food|+5 for each [[Mineral]] in Animal-Range.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 5
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Supreme Genes\u0027\u0027: All [[Goat|Goats]] and [[Deer|Deers]] on the planet gain Food|+3.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Barrel Cactus",
+    "Levels": [
+      {
+        "Name": "Barrel Cactus",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 2
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Nutrient\u0027\u0027: Technology|+8 if at least Wealth|5 on this patch.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Barrel Cactus",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Nutrient\u0027\u0027: Technology|+20 if at least Wealth|10 on this patch.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Barrel Cactus",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "technology",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 16
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Nutrient\u0027\u0027: Technology|+40 if at least Wealth|15 on this patch.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Aloe Vera",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Leaf"
+        }
+      },
+      {
+        "Target": "Chili Pepper",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Toxic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Bull",
+    "Levels": [
+      {
+        "Name": "Bull",
+        "MaxAspects": 6,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "wealth",
+            "Amount": 5
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Large Habitat\u0027\u0027: Food|+30 and wealth|+30 on each patch within Animal-Range that has a [[Plant]] on it.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "\u0027\u0027Symbol of force\u0027\u0027: wealth|+1 for each awe|1 from [[Plants]] within animal-range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Aloe Vera",
+    "Levels": [
+      {
+        "Name": "Aloe Vera",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "natura",
+            "Amount": 4
+          },
+          {
+            "Name": "technology",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Medicine\u0027\u0027: Technology|+5 and Awe|+5 for each [[Animals|Animal]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 5
+              },
+              {
+                "Name": "Awe",
+                "Amount": 5
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Aloe Vera",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "natura",
+            "Amount": 6
+          },
+          {
+            "Name": "technology",
+            "Amount": 20
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Medicine\u0027\u0027: Technology|+10 and Awe|+8 for each [[Animals|Animal]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 10
+              },
+              {
+                "Name": "Awe",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Aloe Vera",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "natura",
+            "Amount": 12
+          },
+          {
+            "Name": "technology",
+            "Amount": 10
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Medicine\u0027\u0027: Technology|+20 and Awe|+12 for each [[Animals|Animal]] within Natura Range.",
+            "Type": "forEachWithinNatura",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 20
+              },
+              {
+                "Name": "Awe",
+                "Amount": 12
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Opium Poppy",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Toxic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Desert Tortoise",
+    "Levels": [
+      {
+        "Name": "Desert Tortoise",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Herbivore\u0027\u0027: Wealth|+3 if next to a [[Plant]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plant" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 3
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Desert Tortoise",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Herbivore\u0027\u0027: Wealth|+8 if next to a [[Plant]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plant" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Desert Tortoise",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Herbivore\u0027\u0027: Wealth|+16 if next to a [[Plant]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plant" ],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 16
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Rattlesnake",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Predator"
+        }
+      },
+      {
+        "Target": "Armadillo",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Exotic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Chili Pepper",
+    "Levels": [
+      {
+        "Name": "Chili Pepper",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "technology",
+            "Amount": 8
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Ground for Medicinal Peppers\u0027\u0027: Technology|+20 for each [[Copper]], [[Iron]], [[Salt]] or [[Aluminium]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Copper", "Iron", "Salt", "Aluminium" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 20
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Ground for Tasty Peppers\u0027\u0027: Food|+20 for each [[Topaz]], [[Onyx]], [[Platinum]] or [[Gold]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Topaz", "Onyx", "Platinum", "Gold" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 20
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Chili Pepper",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 16
+          },
+          {
+            "Name": "technology",
+            "Amount": 16
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Ground for Medicinal Peppers\u0027\u0027: Technology|+40 for each [[Copper]], [[Iron]], [[Salt]] or [[Aluminium]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Copper", "Iron", "Salt", "Aluminium" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 40
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Ground for Tasty Peppers\u0027\u0027: Food|+40 for each [[Topaz]], [[Onyx]], [[Platinum]] or [[Gold]] next to it.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Topaz", "Onyx", "Platinum", "Gold" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 40
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Opium Poppy",
+        "Aspect": {
+          "Strength": "Sublime",
+          "Name": "Toxic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Rattlesnake",
+    "Levels": [
+      {
+        "Name": "Rattlesnake",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 3
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Predator\u0027\u0027: Wealth|+1 for each patch with a [[Kangaroo Rat]], [[Armadillo]] or [[Desert Tortoise]] in Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Rattlesnake",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 5
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Predator\u0027\u0027: Wealth|+2 for each patch with a [[Kangaroo Rat]], [[Armadillo]] or [[Desert Tortoise]] in Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Rattlesnake",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 10
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Predator\u0027\u0027: Wealth|+3 for each patch with a [[Kangaroo Rat]], [[Armadillo]] or [[Desert Tortoise]] in Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Grey Fox",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Exotic"
+        }
+      },
+      {
+        "Target": "Gila Monster",
+        "Aspect": {
+          "Strength": "any 2",
+          "Name": "Greater"
+        }
+      },
+      {
+        "Target": "Coyote",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Predator"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Opium Poppy",
+    "Levels": [
+      {
+        "Name": "Opium Poppy",
+        "MaxAspects": 6,
+        "Yields": [
+          {
+            "Name": "natura",
+            "Amount": 4
+          },
+          {
+            "Name": "technology",
+            "Amount": 30
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Powerful Drug\u0027\u0027: Technology|+50 and Wealth|+50 but Awe|-15 for each [[Plants|Plant]] next to this Opium Poppy.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 50
+              },
+              {
+                "Name": "Wealth",
+                "Amount": 50
+              },
+              {
+                "Name": "Awe",
+                "Amount": -15
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Endless Fields\u0027\u0027: Technology|+100 if there are at least 2 [[Plants]] in Natura Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Grey Fox",
+    "Levels": [
+      {
+        "Name": "Grey Fox",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 1
+          },
+          {
+            "Name": "wealth",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Tunneler\u0027\u0027: Range|+1 if next to an [[Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Range",
+                "Amount": 1
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Perfect Hide\u0027\u0027: Wealth|+5 if the [[Grey Fox]] has at least Wealth|5.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Grey Fox",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 2
+          },
+          {
+            "Name": "wealth",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Tunneler\u0027\u0027: Range|+1 if next to an [[Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Range",
+                "Amount": 1
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Perfect Hide\u0027\u0027: Wealth|+10 if the [[Grey Fox]] has at least Wealth|10.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Grey Fox",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "wealth",
+            "Amount": 8
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Tunneler\u0027\u0027: Range|+1 if next to an [[Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Range",
+                "Amount": 1
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Perfect Hide\u0027\u0027: Wealth|+15 if the [[Grey Fox]] has at least Wealth|15.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Bobcat",
+        "Aspect": {
+          "Strength": "Sublime Predator  or",
+          "Name": "Exotic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Kangaroo Rat",
+    "Levels": [
+      {
+        "Name": "Kangaroo Rat",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 1
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Burrower\u0027\u0027: Food|+2 if a [[Mineral]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 2
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Kangaroo Rat",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 2
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Burrower\u0027\u0027: Food|+4 if a [[Mineral]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 4
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Kangaroo Rat",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 4
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Burrower\u0027\u0027: Food|+8 if a [[Mineral]] is within Animal-Range.",
+            "Type": "ifSourceWithinRange",
+            "OtherSource": [ "Mineral" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 8
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Goat",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Herd"
+        }
+      },
+      {
+        "Target": "Armadillo",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Hunt"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Gila Monster",
+    "Levels": [
+      {
+        "Name": "Gila Monster",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 10
+          },
+          {
+            "Name": "technology",
+            "Amount": 5
+          },
+          {
+            "Name": "range",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Slow Potentials\u0027\u0027: The Gila Monster has a smaller area of effect, but gives Wealth|+5 and Technology|+5 for each patch with at least Natura|15.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "\u0027\u0027Adaptation\u0027\u0027: Receive bonus for each neighbour*[[Plants]] give Food|+5*[[Animals]] give Wealth|+5*[[Minerals]] give Technology|+5.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Gila Monster",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 20
+          },
+          {
+            "Name": "technology",
+            "Amount": 10
+          },
+          {
+            "Name": "range",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Slow Potentials\u0027\u0027: The Gila Monster has a smaller area of effect, but gives Wealth|+10 and Technology|+10 for each patch with at least Natura|25.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "\u0027\u0027Adaptation\u0027\u0027: Receive bonus for each neighbour*[[Plants]] give Food|+10*[[Animals]] give Wealth|+10*[[Minerals]] give Technology|+10",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Bobcat",
+        "Aspect": {
+          "Strength": "Sublime Predator  or",
+          "Name": "Exotic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Coffea",
+    "Levels": [
+      {
+        "Name": "Coffea",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 15
+          },
+          {
+            "Name": "technology",
+            "Amount": 8
+          },
+          {
+            "Name": "natura",
+            "Amount": 5
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Caffeine\u0027\u0027: Technology|+1 for each Food|2 from [[Plants]] next to this Coffea.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 1
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Stimulating Growth\u0027\u0027: [[Plants]] next to this Coffea gain Food|+10, Technology|+10 and Natura|+5.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Coffea",
+        "MaxAspects": 5,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 30
+          },
+          {
+            "Name": "technology",
+            "Amount": 16
+          },
+          {
+            "Name": "natura",
+            "Amount": 10
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Caffeine\u0027\u0027: Technology|+2 for each Food|2 from [[Plants]] next to this Coffea.",
+            "Type": "forEachNextToIt",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 2
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Stimulating Growth\u0027\u0027: [[Plants]] next to this Coffea gain Food|+20, Technology|+20 and Natura|+10.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Cacao Tree",
+        "Aspect": {
+          "Strength": "Sublime Growth or",
+          "Name": "Fruit"
+        }
+      },
+      {
+        "Target": "Rubber Tree",
+        "Aspect": {
+          "Strength": "Sublime Leaf or",
+          "Name": "Toxic"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Bobcat",
+    "Levels": [
+      {
+        "Name": "Bobcat",
+        "MaxAspects": 6,
+        "Yields": [
+          {
+            "Name": "wealth",
+            "Amount": 5
+          },
+          {
+            "Name": "range",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Animal Overview\u0027\u0027: Wealth|+5 for each Patch in Animal-Range with at least Danger|5",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "Range|+1 if there are at least 3 [[Animal|Animals]] in Animal-Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          },
+          {
+            "Description": "\u0027\u0027Biodiversity\u0027\u0027: Wealth|+6 for each different Source type (Animals, Plants, Minerals) within Animal-Range, excluding this Bobcat.",
+            "Type": "forEachWithinRange",
+            "OtherSource": [],
+            "Benefits": [
+              {
+                "Name": "Wealth",
+                "Amount": 6
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Cacao Tree",
+    "Levels": [
+      {
+        "Name": "Cacao Tree",
+        "MaxAspects": 6,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 15
+          },
+          {
+            "Name": "natura",
+            "Amount": 12
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Plentiful Jungle\u0027\u0027: Awe|+25 if next to a [[Plants|Plant]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Plants" ],
+            "Benefits": [
+              {
+                "Name": "Awe",
+                "Amount": 25
+              }
+            ]
+          },
+          {
+            "Description": "Natura|+25 if next to a [[Minerals|Mineral]]",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Natura",
+                "Amount": 25
+              }
+            ]
+          },
+          {
+            "Description": "Food|+50 if next to an [[Animals|Animal]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 50
+              }
+            ]
+          },
+          {
+            "Description": "\u0027\u0027Manufacture Sweets\u0027\u0027: Food|+80 if there is at least Technology|150 in Natura Range.",
+            "Type": null,
+            "OtherSource": null,
+            "Benefits": null
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": []
+  },
+  {
+    "Name": "Elderberry",
+    "Levels": [
+      {
+        "Name": "Elderberry",
+        "MaxAspects": 1,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 5
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Zoochory\u0027\u0027: Food|+7 and Natura|+3 if next to an [[Animals|Animal Nest]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 7
+              },
+              {
+                "Name": "Natura",
+                "Amount": 3
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Elderberry",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Zoochory\u0027\u0027: Food|+15 and Natura|+6 if next to an [[Animals|Animal Nest]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 15
+              },
+              {
+                "Name": "Natura",
+                "Amount": 6
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Elderberry",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "natura",
+            "Amount": 8
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Zoochory\u0027\u0027: Food|+30 and Natura|+12 if next to an [[Animals|Animal Nest]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Animals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 30
+              },
+              {
+                "Name": "Natura",
+                "Amount": 12
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Tomato",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Leaf"
+        }
+      },
+      {
+        "Target": "Pineapple",
+        "Aspect": {
+          "Strength": "Lesser",
+          "Name": "Fruit"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Pineapple",
+    "Levels": [
+      {
+        "Name": "Pineapple",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "natura",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Food|+14 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 14
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Pineapple",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 14
+          },
+          {
+            "Name": "natura",
+            "Amount": 2
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Food|+28 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 28
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Pineapple",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 28
+          },
+          {
+            "Name": "natura",
+            "Amount": 4
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Deep Roots\u0027\u0027: Food|+42 if next to a [[Minerals|Mineral]].",
+            "Type": "ifNextTo",
+            "OtherSource": [ "Minerals" ],
+            "Benefits": [
+              {
+                "Name": "Food",
+                "Amount": 42
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "Papaya",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Fruit"
+        }
+      },
+      {
+        "Target": "Coffea",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Growth"
+        }
+      }
+    ]
+  },
+  {
+    "Name": "Tomato",
+    "Levels": [
+      {
+        "Name": "Tomato",
+        "MaxAspects": 2,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 8
+          },
+          {
+            "Name": "technology",
+            "Amount": 2
+          },
+          {
+            "Name": "natura",
+            "Amount": 1
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Healthy\u0027\u0027: Technology|+0.5 for each Food|1 on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 0
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Great Tomato",
+        "MaxAspects": 3,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 10
+          },
+          {
+            "Name": "technology",
+            "Amount": 2
+          },
+          {
+            "Name": "natura",
+            "Amount": 3
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Healthy\u0027\u0027: Technology|+1 for each Food|1 on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 1
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      },
+      {
+        "Name": "Superior Tomato",
+        "MaxAspects": 4,
+        "Yields": [
+          {
+            "Name": "food",
+            "Amount": 20
+          },
+          {
+            "Name": "technology",
+            "Amount": 4
+          },
+          {
+            "Name": "natura",
+            "Amount": 6
+          }
+        ],
+        "Symbioses": [
+          {
+            "Description": "\u0027\u0027Healthy\u0027\u0027: Technology|+1.5 for each Food|1 on this patch.",
+            "Type": "forEachOnThis",
+            "OtherSource": [],
+            "Benefits": [
+              {
+                "Name": "Technology",
+                "Amount": 1
+              }
+            ]
+          }
+        ],
+        "ResourcePrerequsite": null,
+        "AbilityNeeded": null
+      }
+    ],
+    "Transmutations": [
+      {
+        "Target": "White Willow",
+        "Aspect": {
+          "Strength": "Potent",
+          "Name": "Leaf"
+        }
+      },
+      {
+        "Target": "Coffea",
+        "Aspect": {
+          "Strength": "Greater",
+          "Name": "Growth"
+        }
+      }
+    ]
+  }
+]
