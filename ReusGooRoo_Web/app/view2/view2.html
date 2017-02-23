@@ -30,4 +30,12 @@
     <p>
         {{ calculationResult }}
     </p>
+
+    <div ng-repeat="giant_abilities2 in active_abilities">
+        {{ giant_abilities2.giant_name }}
+        <span ng-repeat="ability in giant_abilities2.abilities">
+            [{{ ability.name }} {{ ability.level }}]
+        </span>
+    </div>
+
 </div>

@@ -12,6 +12,7 @@ angular.module('myApp.view2', ['ngRoute'])
     .controller('View2Ctrl', function ($scope, $http, GameObjectsService, TileBenefits) {
         GameObjectsService.getGiants().then(function (giants) {
             $scope.giants = giants;
+            update_active_abilities();
         });
 
         GameObjectsService.getAmbassadors().then(function (ambassadors) {
@@ -30,15 +31,24 @@ angular.module('myApp.view2', ['ngRoute'])
             $scope.sources = sources;
         });
 
+        $scope.active_abilities = [];
 
         $scope.lotSize = 3;
+
+        function update_active_abilities() {
+            $scope.active_abilities = $scope.giants.map(function (giant) {
+                return { giant_name: giant.name, abilities: giant.get_active_abilities() };
+            })
+        }
 
         $scope.update = function () {
             // "this" in this context is the angular's "ChildScope"
             // we have a "slot" here (connected to a giant) and a "slotModel" which is the thing bound to the combo box
             this.slot.ambassador = this.slotModel;
 
-            console.log('', $scope.giants[0].get_active_abilities()[0].level);
+            update_active_abilities();
+
+            console.log('', $scope.active_abilities[0].level);
         };
 
         $scope.updateLotSize = function () {
