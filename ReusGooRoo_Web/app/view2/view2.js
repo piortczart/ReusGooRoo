@@ -6,6 +6,24 @@ Array.prototype.selectMany = function (fn) {
     }, []);
 };
 
+angular.module('myApp').factory('PersistenceService', function (Cookies) {
+
+    function update_slots(giants) {
+        var giants_ambassadors = giants.map(function (giant) {
+            return giant.slots.map(function (slot) {
+                var ambassador = slot.ambassador;
+                return ambassador === undefined ? undefined : ambassador.biome;
+            })
+        })
+
+        Cookies.set('giants_ambassadors', giants_ambassadors);
+    }
+
+    return {
+        store_slots: update_slots
+    };
+});
+
 angular.module('myApp.view2', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
@@ -15,7 +33,10 @@ angular.module('myApp.view2', ['ngRoute'])
         });
     }])
 
-    .controller('View2Ctrl', function ($scope, $http, GameObjectsService, TileBenefits, NaturalSource) {
+    .controller('View2Ctrl', function ($scope, $http, GameObjectsService,
+                                       PersistenceService, TileBenefits,
+                                       NaturalSource, SymbiosesService, TransmutationsService,
+                                       CombinationsService) {
         GameObjectsService.getGiants().then(function (giants) {
             $scope.giants = giants;
             update_active_abilities_and_aspects();
@@ -36,6 +57,10 @@ angular.module('myApp.view2', ['ngRoute'])
                 return {name: biome.name, selected: true}
             })
         });
+
+        $scope.selected_families = ["Minerals", "Animals", "Plants"].map(function (family) {
+            return {name: family, selected: true}
+        })
 
         GameObjectsService.getNaturalSources().then(function (sources) {
             $scope.sources = sources;
@@ -63,6 +88,8 @@ angular.module('myApp.view2', ['ngRoute'])
             this.slot.ambassador = this.slotModel;
 
             update_active_abilities_and_aspects();
+
+            PersistenceService.store_slots($scope.giants);
         };
 
         $scope.updateLotSize = function () {
@@ -73,146 +100,6 @@ angular.module('myApp.view2', ['ngRoute'])
                 this.lotSize = 1;
             }
         };
-
-        function is_biome_valid_for_ability(ability, biome_name) {
-            for (var i = 0; i < ability.valid_biomes.length; i++) {
-                var suspected_biome = ability.valid_biomes[i];
-                if (suspected_biome.name == "all" || suspected_biome.name == biome_name) {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        function get_ability_on_biome_product(ability, biome_name) {
-            var result = ability.valid_biomes.filter(function (biome) {
-                return biome.name == biome_name;
-            })[0];
-            if (result === undefined) {
-                return ability.name + " on " + biome_name + "?";
-            }
-            return result.produces;
-        }
-
-        function get_source_level_range(source_level) {
-            var result = 0;
-            var range = source_level.Yields.filter(function (y) {
-                return y.Name == "range";
-            })[0];
-            return range === undefined ? result : range.Amount;
-        }
-
-        function add_benefit_at_index(index, symbioses_benefits, yields, extra_benefits) {
-            // Make sure we are within possible range.
-            if (index >= 0 && index < symbioses_benefits.length) {
-                symbioses_benefits[index].add_benefits(yields)
-            } else {
-                // We are outside of the range!
-                // Add any stuff to the overflow.
-                extra_benefits.add_benefits(yields);
-            }
-        }
-
-        function improve_source_at_index(range, item_index, symbioses_benefits, extra_benefits, yields) {
-            for (var i = 0; i <= range; i++) {
-                if (i == 0) {
-                    symbioses_benefits[item_index].add_benefits(yields);
-                } else {
-                    add_benefit_at_index(item_index + i, symbioses_benefits, yields, extra_benefits)
-                    add_benefit_at_index(item_index - i, symbioses_benefits, yields, extra_benefits)
-                }
-            }
-        }
-
-        function symbiosis_has_in_other_source(symbiosis, other_source) {
-            var has_direct_name = $.inArray(other_source.Name, symbiosis.OtherSource) != -1;
-            var family_name = other_source.Family.slice(0, -1);
-            var has_family_name = $.inArray(family_name, symbiosis.OtherSource) != -1;
-            return has_family_name || has_direct_name;
-        }
-
-        // Calculate the symbiosis for the source with given index when there is the list of sources around.
-        function calculate_symbiosis(sources, item_index, symbioses_benefits, extra_benefits) {
-            var base = sources[item_index];
-
-            var source_level = base.result.Levels[base.level - 1];
-            var range = get_source_level_range(source_level);
-
-            // At this benefits slot we first add the yields of the source at this spot.
-            // We need to include (possibly) the range of this source.
-            improve_source_at_index(range, item_index, symbioses_benefits, extra_benefits, source_level.Yields)
-
-            // Now we calculate the symbioses.
-            var symbioses = source_level.Symbioses;
-
-            //
-            // ifNextTo symbiosis
-            //
-            {
-                // Calculate what's next to it.
-                var next_to_it = [];
-                if (item_index > 0) {
-                    // Add the previous one.
-                    next_to_it.push(sources[item_index - 1]);
-                }
-                if (item_index < sources.length - 1) {
-                    // Add the next one.
-                    next_to_it.push(sources[item_index + 1]);
-                }
-                var ifNextTos = symbioses.filter(function (symbiosis) {
-                    return symbiosis.Type == "ifNextTo"
-                });
-                ifNextTos.forEach(function (symbiosis) {
-                    next_to_it.forEach(function (other_source) {
-                        var other_source = other_source.result;
-                        if (symbiosis_has_in_other_source(symbiosis, other_source)) {
-                            improve_source_at_index(range, item_index, symbioses_benefits, extra_benefits, symbiosis.Benefits);
-                        }
-                    })
-                });
-            }
-            // ifWithinRange symbiosis
-            {
-                var ifWithinRanges = symbioses.filter(function (symbiosis) {
-                    return symbiosis.Type == "ifSourceWithinRange"
-                });
-                ifWithinRanges.forEach(function (symbiosis) {
-                    var is_active = false;
-
-                    // This are the indexes within range.
-                    var index_start = item_index - range;
-                    if (index_start < 0) {
-                        index_start = 0;
-                    }
-                    var index_end = item_index + range;
-                    if (index_end >= sources.length) {
-                        index_end = sources.length - 1;
-                    }
-
-                    // Check if the symbiosis is active.
-                    for (var i = index_start; i <= index_end; i++) {
-                        // Do not check myself.
-                        if (i == item_index) {
-                            continue;
-                        }
-
-                        symbiosis.OtherSource.forEach(function (otherSource) {
-                            if (otherSource == sources[i].result.Name) {
-                                is_active = true;
-                            }
-                        })
-                        if (is_active) {
-                            break;
-                        }
-                    }
-
-                    // This symbiosis is active!
-                    if (is_active) {
-                        improve_source_at_index(range, item_index, symbioses_benefits, extra_benefits, symbiosis.Benefits);
-                    }
-                });
-            }
-        }
 
         // Returns list of object containing natural sources and levels which can be created by giants with current abilities.
         function get_starting_sources() {
@@ -239,68 +126,51 @@ angular.module('myApp.view2', ['ngRoute'])
             return result;
         }
 
-        function fill_transmutations(source, transmutations, all_sources, active_aspects) {
-            source.result.Transmutations.forEach(function (transmutation_description) {
-
-                var transmutation = all_sources.filter(function (a_source) {
-                    // Find the transmutation natural source.
-                    if (a_source.Name == transmutation_description.Target) {
-                        // Make sure we have the right aspect.
-                        var valid_aspect = active_aspects.filter(function (aspect_with_level) {
-                            var s = a_source;
-                            return aspect_with_level.aspect.name == transmutation_description.Aspect.Name &&
-                                aspect_with_level.level <= transmutation_description.Aspect.Level;
-                        })[0]
-
-                        // Make sure we have level high enough for at least one transmutation.
-                        var valid_level = a_source.Levels.filter(function (source_level) {
-                            var level_to_check = source_level.Level;
-                            return level_to_check <= source.level;
-                        })[0];
-
-                        return valid_aspect !== undefined && valid_level !== undefined;
-                    }
-                    return false;
-                })[0];
-
-                if (transmutation !== undefined) {
-                    var result = {
-                        level: source.level,
-                        result: transmutation,
-                        paths: [source.result.Name]
-                    }
-
-                    // Add this transmutation to the existing list.
-                    // Make sure it's not there yet.
-                    var existsing = transmutations.filter(function (t) {
-                        return t.result.Name == transmutation.Name;
-                    })[0];
-
-                    if (typeof existsing === 'undefined') {
-                        transmutations.push(result);
-                        fill_transmutations(result, transmutations, all_sources, active_aspects);
-                    } else {
-                        existsing.paths.push(source.result.Name)
-                    }
-                }
-            })
-        }
-
         function biome_filter(source) {
+            var is_biome_valid = false;
             for (var i = 0; i < $scope.selected_biomes.length; i++) {
                 var valid_biome = $scope.selected_biomes[i];
                 if (!valid_biome.selected) {
                     continue;
                 }
 
-                if (valid_biome.name.toUpperCase() == source.result.Biome.toUpperCase()) {
-                    return true;
+                if (source.result.Biomes.some(function (source_biome) {
+                        return source_biome.toUpperCase() == valid_biome.name.toUpperCase();
+                    })) {
+                    is_biome_valid = true;
+                }
+                if (is_biome_valid) {
+                    break;
                 }
             }
-            return false;
+
+            if (!is_biome_valid) {
+                return false;
+            }
+
+            var is_family_valid = false;
+            for (var i = 0; i < $scope.selected_families.length; i++) {
+                var valid_family = $scope.selected_families[i];
+                if (!valid_family.selected) {
+                    continue;
+                }
+                if (valid_family.name.toUpperCase() == source.result.Family.toUpperCase()) {
+                    is_family_valid = true;
+                }
+            }
+
+            if (!is_family_valid) {
+                return false;
+            }
+
+            return true;
         }
 
+        $scope.iterations_needed = "?";
+
         $scope.best_sources_food = [];
+        $scope.best_sources_wealth = [];
+        $scope.best_sources_tech = [];
 
         $scope.calculateStuff = function () {
             var starting_sources = get_starting_sources().filter(biome_filter);
@@ -321,7 +191,8 @@ angular.module('myApp.view2', ['ngRoute'])
                 return aaa.aspects;
             });
             starting_sources.forEach(function (starting_source) {
-                fill_transmutations(starting_source, transmutations, $scope.sources, active_aspects);
+                if (starting_source.result.Name == "Chicken")
+                    TransmutationsService.fill_transmutations(starting_source, transmutations, $scope.sources, active_aspects);
             })
             transmutations = transmutations.filter(biome_filter);
 
@@ -340,76 +211,72 @@ angular.module('myApp.view2', ['ngRoute'])
 
             var all = [];
 
-            var count = 0;
-            all_available_sources.forEach(function (source1) {
-                all_available_sources.forEach(function (source2) {
-                    var name1 = source1.result.Name;
-                    var name2 = source2.result.Name;
-                    //console.log(name1 + ", " + name2 + ", " + count++);
+            var combinations = CombinationsService.get_combinations(all_available_sources, $scope.lotSize);
 
-                    // if (name2 != "Blueberry") {
-                    //     return;
-                    // }
+            $scope.iterations_needed = combinations.length;
 
-                    var sources = [source1, source2];
-                    var symbioses_benefits = [];
-                    // Any leftover benefits like benefits outside of the given range.
-                    var extra_benefits = new TileBenefits($scope.resources);
-                    // Fill the benefits with empty resources.
-                    for (var i = 0; i < sources.length; i++) {
-                        symbioses_benefits[i] = new TileBenefits($scope.resources);
-                    }
-                    // symbioses_benefits should get filled.
-                    for (var i = 0; i < sources.length; i++) {
-                        calculate_symbiosis(sources, i, symbioses_benefits, extra_benefits);
-                    }
+            combinations.forEach(function (sources) {
 
-                    var all_benefits = new TileBenefits($scope.resources);
-                    all_benefits.add_benefits(extra_benefits.benefits);
-                    symbioses_benefits.forEach(function (symbiosis_benefit) {
-                        all_benefits.add_benefits(symbiosis_benefit.benefits);
-                    })
+                // if (sources[0].result.Name != "Strawberry" ||
+                //     sources[1].result.Name != "Blueberry" ||
+                //     sources[2].result.Name != "Strawberry"){
+                //     return;
+                // }
 
+                var symbioses_benefits = [];
+                // Any leftover benefits like benefits outside of the given range.
+                var extra_benefits = new TileBenefits($scope.resources);
+                // Fill the benefits with empty resources.
+                for (var i = 0; i < sources.length; i++) {
+                    symbioses_benefits[i] = new TileBenefits($scope.resources);
+                }
+                // symbioses_benefits should get filled.
+                for (var i = 0; i < sources.length; i++) {
+                    SymbiosesService.calculate_symbiosis(sources, i, symbioses_benefits, extra_benefits);
+                }
 
-                    all.push({
-                        s: [source1.result.Name, source2.result.Name],
-                        b: all_benefits
-                    })
+                var all_benefits = new TileBenefits($scope.resources);
+                all_benefits.add_benefits(extra_benefits.benefits);
+                symbioses_benefits.forEach(function (symbiosis_benefit) {
+                    all_benefits.add_benefits(symbiosis_benefit.benefits);
+                })
 
-                    // var current_wealth = all_benefits.get_benefit("wealth").Amount;
-                    // var current_tech = all_benefits.get_benefit("technology").Amount;
-                    // if (best_wealth === undefined || best_wealth.wealth < current_wealth) {
-                    //     best_wealth = {
-                    //         "wealth": current_wealth,
-                    //         "s": [source1.result.Name, source2.result.Name],
-                    //         "b": symbioses_benefits.map(function (sb) {
-                    //             return JSON.stringify(sb.get_benefits(), null);
-                    //         }),
-                    //         "e": JSON.stringify(extra_benefits.get_benefits())
-                    //     }
-                    // }
-                    // if (best_tech === undefined || best_tech.tech < current_tech) {
-                    //     best_tech = {
-                    //         "tech": current_tech,
-                    //         "s": [source1.result.Name, source2.result.Name],
-                    //         "b": symbioses_benefits.map(function (sb) {
-                    //             return JSON.stringify(sb.get_benefits(), null);
-                    //         }),
-                    //         "e": JSON.stringify(extra_benefits.get_benefits())
-                    //     }
-                    // }
+                all.push({
+                    s: sources.map(function (s) {
+                        return s.result.Name;
+                    }),
+                    b: all_benefits
                 })
             })
 
+            // Show best food.
             var all_food = all.sort(function (a, b) {
                 return b.b.get_benefit("food").Amount - a.b.get_benefit("food").Amount;
             })
             $scope.best_sources_food = [];
-            for(var i=0; i<5 && i < all_food.length; i++){
+            for (var i = 0; i < 5 && i < all_food.length; i++) {
                 $scope.best_sources_food.push(all_food[i]);
             }
 
-             console.log(JSON.stringify(all_food[0], null, "  "));
+            // Show best tech.
+            var all_tech = all.sort(function (a, b) {
+                return b.b.get_benefit("technology").Amount - a.b.get_benefit("technology").Amount;
+            })
+            $scope.best_sources_tech = [];
+            for (var i = 0; i < 5 && i < all_tech.length; i++) {
+                $scope.best_sources_tech.push(all_tech[i]);
+            }
+
+            // Show best wealth.
+            var all_wealth = all.sort(function (a, b) {
+                return b.b.get_benefit("wealth").Amount - a.b.get_benefit("wealth").Amount;
+            })
+            $scope.best_sources_wealth = [];
+            for (var i = 0; i < 5 && i < all_wealth.length; i++) {
+                $scope.best_sources_wealth.push(all_wealth[i]);
+            }
+
+            //console.log(JSON.stringify(all_food[0], null, "  "));
             // console.log(JSON.stringify(best_tech, null, "  "));
         };
     });

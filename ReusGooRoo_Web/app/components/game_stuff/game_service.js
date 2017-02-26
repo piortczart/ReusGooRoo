@@ -7,24 +7,7 @@ angular.module('myApp').value('ValueMapper', function (target, source) {
     return target;
 });
 
-// angular.module('myApp').factory('Cache', function () {
-//     var resources = [];
-//
-//     function store(new_resources){
-//         resources = new_resources;
-//     }
-//
-//     function get_all(){
-//         return resources;
-//     }
-//
-//     return{
-//         store: store,
-//         get: get_all
-//     }
-// });
-
-angular.module('myApp').factory('GameObjectsService', function ($http, Giant, Ambassador, Resource, Biome, NaturalSource) {
+angular.module('myApp').factory('GameObjectsService', function ($http, $q, Giant, Ambassador, Resource, Biome, NaturalSource) {
 
     return {
         get: function (file_name, mapper) {

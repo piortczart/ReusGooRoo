@@ -116,9 +116,9 @@
         "name": "Hunt",
         "works_on": "animals",
         "requires_ambassadors": [
-          "f",
-          "ff",
-          "fffa"
+          "d",
+          "dd",
+          "ddaa"
         ]
       }
     ]
