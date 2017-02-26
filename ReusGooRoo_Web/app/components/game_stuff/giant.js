@@ -1,4 +1,4 @@
-angular.module('myApp').factory('Giant', function (ValueMapper, GiantSlot, GiantAbility) {
+angular.module('myApp').factory('Giant', function (ValueMapper, GiantSlot, GiantAbilityWithLevel, GiantAspectWithLevel) {
     function Giant() {
         this.slots = [new GiantSlot(), new GiantSlot(), new GiantSlot(), new GiantSlot()];
     };
@@ -78,7 +78,27 @@ angular.module('myApp').factory('Giant', function (ValueMapper, GiantSlot, Giant
                     break;
                 }
             }
-            result.push(new GiantAbility(ability.name, level))
+            result.push(new GiantAbilityWithLevel(ability, level))
+        });
+
+        return result;
+    }
+
+    Giant.prototype.get_active_aspects = function () {
+        var result = [];
+        var slots = this.slots;
+
+        this.aspects.forEach(function (aspect) {
+            var level = 0;
+            for (var i = 0; i < aspect.requires_ambassadors.length; i++) {
+                var has_proper = has_proper_ambassadors(aspect.requires_ambassadors[i], slots);
+                if (has_proper) {
+                    level = i + 1;
+                } else {
+                    break;
+                }
+            }
+            result.push(new GiantAspectWithLevel(aspect, level))
         });
 
         return result;

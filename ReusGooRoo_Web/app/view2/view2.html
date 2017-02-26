@@ -19,23 +19,56 @@
         </div>
     </div>
 
+    <div ng-repeat="giant_abilities_and_aspects in active_abilities_and_aspects">
+        {{ giant_abilities_and_aspects.giant_name }}
+        <span ng-repeat="ability_with_level in giant_abilities_and_aspects.abilities">
+            [{{ ability_with_level.ability.name }} {{ ability_with_level.level }}]
+        </span>
+        <span ng-repeat="aspect_with_level in giant_abilities_and_aspects.aspects">
+            [{{ aspect_with_level.aspect.name }} {{ aspect_with_level.level }}]
+        </span>
+    </div>
+
     <div>
         <h3>2. How much space do you want to cover with natural sources.</h3>
         <input type="number" ng-model="lotSize" ng-change="updateLotSize()"/>
     </div>
+
+    <div>
+        <h3>3. Select the biomes you want to cover.</h3>
+        <label ng-repeat="biome in selected_biomes" class="checkbox">
+            <input type="checkbox" value="{{biome.name}}" ng-model="biome.selected">
+            {{biome.name}}
+        </label>
+    </div>
+
+    <div>
+        <h3>4. Calculate and wait for it....</h3>
+    </div>
     <div>
         <button ng-click="calculateStuff()">Calculate</button>
+
+        <div>Possible natural sources: {{possible_natural_sources.total_count}}</div>
+
+        <table cellspacing="0">
+            <tr class="first">
+                <th class="first">Name</th>
+                <th>Biome</th>
+                <th>Level</th>
+                <!--<th>Yields</th>-->
+                <th>Paths</th>
+            </tr>
+            <tr ng-repeat="source in possible_natural_sources.actual_sources">
+                <td class="first">{{source.result.Name}}</td>
+                <td>{{source.result.Biome}}</td>
+                <td>{{source.level}}</td>
+                <!--<td>{{source.result.Levels[source.level-1].Yields}}</td>-->
+                <td>{{source.paths}}</td>
+            </tr>
+        </table>
+
     </div>
 
-    <p>
-        {{ calculationResult }}
-    </p>
-
-    <div ng-repeat="giant_abilities2 in active_abilities">
-        {{ giant_abilities2.giant_name }}
-        <span ng-repeat="ability in giant_abilities2.abilities">
-            [{{ ability.name }} {{ ability.level }}]
-        </span>
-    </div>
-
+    <div ng-repeat="best_food in best_sources_food" class="checkbox">
+        {{ best_food.s }}, food: {{ best_food.b.get_benefit("food").Amount }}</div>
 </div>

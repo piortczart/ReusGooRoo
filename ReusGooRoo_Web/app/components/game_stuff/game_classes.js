@@ -1,9 +1,17 @@
-angular.module('myApp').factory('GiantAbility', function () {
-    function GiantAbility(name, level) {
-        this.name = name;
+angular.module('myApp').factory('GiantAbilityWithLevel', function () {
+    function GiantAbilityWithLevel(ability, level) {
+        this.ability = ability;
         this.level = level;
     };
-    return GiantAbility;
+    return GiantAbilityWithLevel;
+});
+
+angular.module('myApp').factory('GiantAspectWithLevel', function () {
+    function GiantAspectWithLevel(aspect, level) {
+        this.aspect = aspect;
+        this.level = level;
+    };
+    return GiantAspectWithLevel;
 });
 
 angular.module('myApp').factory('GiantSlot', function () {
@@ -55,34 +63,43 @@ angular.module('myApp').factory('NaturalSource', function (ValueMapper) {
         return ValueMapper(new NaturalSource(), jsonData);
     }
 
+    NaturalSource.get_by_name = function (name, sources){
+        return sources.find(function (source) {
+            return source.Name == name;
+        });
+    }
+
     // Return the constructor.
     return NaturalSource;
 });
 
 angular.module('myApp').factory('TileBenefits', function () {
+
     var benefits;
 
     function TileBenefits(resources) {
-        benefits = resources;
-        benefits.forEach(function (benefit) {
+        // We have to make a clone here to make sure all TileBenefits don't work on the same reources object.
+        this.benefits = JSON.parse(JSON.stringify(resources));
+        this.benefits.forEach(function (benefit) {
             benefit.Amount = 0;
         })
     }
 
     TileBenefits.prototype.get_benefits = function () {
-        return benefits;
+        return this.benefits;
     };
 
     TileBenefits.prototype.get_benefit = function (resource_name) {
-        return benefits.filter(function (b) {
-            return b.Name == resource_name
+        return this.benefits.filter(function (b) {
+            return b.Name.toUpperCase() == resource_name.toUpperCase()
         })[0];
     };
 
     TileBenefits.prototype.add_benefits = function (new_benefits) {
+        var benefits = this.benefits;
         new_benefits.forEach(function (new_benefit) {
             benefits.forEach(function (existing) {
-                if (existing.Name == new_benefit.Name) {
+                if (existing.Name.toUpperCase() == new_benefit.Name.toUpperCase()) {
                     existing.Amount += new_benefit.Amount;
                 }
             })
