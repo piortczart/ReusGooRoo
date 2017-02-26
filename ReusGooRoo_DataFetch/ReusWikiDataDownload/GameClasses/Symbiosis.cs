@@ -23,10 +23,7 @@ namespace ReusWikiDataDownload.GameClasses
                 return matchesSplit.Select(x => x[0]);
 
             // The second name will be returned for each match (if available).
-            return matchesSplit.Select(x =>
-            {
-                return x.Length > 1 ? x[1] : x[0];
-            });
+            return matchesSplit.Select(x => x.Length > 1 ? x[1] : x[0]);
         }
 
 

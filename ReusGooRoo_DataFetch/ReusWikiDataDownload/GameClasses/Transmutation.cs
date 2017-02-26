@@ -23,7 +23,7 @@ namespace ReusWikiDataDownload.GameClasses
                                 // Make a transmutation out of every "or"
                                 .Select(match => new Transmutation
                                 {
-                                    Aspect = new Aspect(match.match.Groups[2].Value.Trim(), match.aspectName),
+                                    Aspect = new Aspect(match.match.Groups[2].Value.Trim(), match.aspectName, match.match.Groups[0].Value.Trim()),
                                     Target = match.match.Groups[1].Value.Trim()
                                 })).ToArray();
         }

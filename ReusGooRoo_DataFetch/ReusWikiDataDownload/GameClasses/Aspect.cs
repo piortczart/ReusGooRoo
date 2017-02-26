@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace ReusWikiDataDownload.GameClasses
 {
@@ -10,11 +11,23 @@ namespace ReusWikiDataDownload.GameClasses
         public string Strength { get; set; }
         public string Name { get; set; }
         public int Level { get; set; }
+        public bool IsAnyTwoGreater { get; set; }
 
-        public Aspect(string strength, string name)
+        public Aspect(string strength, string name, string fullText)
         {
-            Strength = strength;
-            Name = name;
+            if (fullText.Contains("any 2 Greater"))
+            {
+                // This is a special case, one natural source has a different type of description.
+                IsAnyTwoGreater = true;
+                Name = "any";
+                strength = "Greater";
+            }
+            else
+            {
+                Strength = strength;
+                Name = name;
+
+            }
             int indexOfName = Levels.IndexOf(strength);
             if (indexOfName == -1)
             {

@@ -9,6 +9,6 @@ namespace ReusWikiDataDownload.GameClasses
         public List<ResourceLevel> Levels { get; } = new List<ResourceLevel>();
         public Transmutation[] Transmutations { get; set; }
         public string AbilityNeeded { get; set; }
-        public string Biome { get; set; }
+        public string[] Biomes { get; set; }
     }
 }

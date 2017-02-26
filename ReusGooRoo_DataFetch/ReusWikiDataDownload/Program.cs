@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using ReusWikiDataDownload.GameClasses;
@@ -9,7 +10,6 @@ namespace ReusWikiDataDownload
 {
     partial class Program
     {
-
         static void Main()
         {
             Task.Run(async () =>
@@ -18,8 +18,9 @@ namespace ReusWikiDataDownload
                 IEnumerable<Resource> resources = await parser.GetReusResources();
                 var json = new JavaScriptSerializer().Serialize(resources);
                 var outputFileInfo = new FileInfo("sources.json");
-                Console.WriteLine("Storing the result in: " + outputFileInfo.FullName);
+                Console.WriteLine($"Storing the result in: '{outputFileInfo.FullName}'...");
                 File.WriteAllText(outputFileInfo.FullName, json);
+                Console.ReadKey();
             }).Wait();
         }
     }

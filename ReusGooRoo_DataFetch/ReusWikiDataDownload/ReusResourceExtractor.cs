@@ -17,6 +17,8 @@ namespace ReusWikiDataDownload
             public string Transmutations { get; set; }
         }
 
+        private static readonly string[] ValidBiomes = { "Desert", "Ocean", "Mountain", "Forest", "Swamp" };
+
         private readonly ReusWikiPageDownloader _reusWikiPageDownloader;
 
         public ReusResourceExtractor(ReusWikiPageDownloader reusWikiPageDownloader)
@@ -40,7 +42,7 @@ namespace ReusWikiDataDownload
                         link = tableRow.SelectSingleNode("./td[1]/a[2]").Attributes["href"].Value,
                         transmutations = tableRow.SelectSingleNode("./td[5]").InnerText
                     })
-                //.Where(u => u.Contains("Blueberry"))
+                //.Where(u => u.link.Contains("Stone"))
                 // Fetch the page.
                 .Select(async resourceUrl => new PageWithTransmutations
                 {
@@ -90,7 +92,13 @@ namespace ReusWikiDataDownload
             // Find the family.
             resource.Family = Regex.Match(markupText, "data3.+=(.+)").Groups[1].Value.Trim().Trim(']', '[');
             // And the biome.
-            resource.Biome = Regex.Match(markupText, "data2.+=(.+)").Groups[1].Value.Trim().Trim(']', '[');
+            // Possible raw biome data example: [[Forest]], [[Mountain]], [[Desert]]
+            string rawBiome = Regex.Match(markupText, "data2.+=(.+)").Groups[1].Value.Trim();
+            resource.Biomes = Regex.Matches(rawBiome, @"\[\[(.+?)\]\]").Cast<Match>().Select(match => match.Groups[1].Value).ToArray();
+            if (resource.Biomes.Any(biome => !ValidBiomes.Contains(biome)))
+            {
+                throw new Exception("One of the biomes has invalid name: " + String.Join(",", resource.Biomes));
+            }
 
             var region = GetWikiRegion(markupText, "Levels");
 
@@ -123,8 +131,8 @@ namespace ReusWikiDataDownload
                 List<Symbiosis> symbioses =
                     // Get the symbioses descriptions
                     GetValuesByKeysWithNumbers(sourceDetails, "symbiosis")
-                    // Split them, there are sometimes two descriptions in one line. The dot should be an end of sentence.
-                    .SelectMany(descriptions => descriptions.Split(new[] { ". " }, StringSplitOptions.RemoveEmptyEntries))
+                    // Split them, there are sometimes two descriptions in one line. The dot should be an end of each sentence.
+                    .SelectMany(descriptions => descriptions.Split(new[] { "." }, StringSplitOptions.RemoveEmptyEntries))
                     // Create a detailed symbiosis object for each entry we found.
                     .Select(description => new Symbiosis { Description = description }.Analyze()).ToList();
 
@@ -144,7 +152,6 @@ namespace ReusWikiDataDownload
                     Yields = yields,
                     ResourcePrerequisite = sourceDetails.ContainsKey("activates") ? sourceDetails["activates"] : null,
                     Level = int.Parse(sourceDetails["level"])
-                    //Transmutations = transmutations.Select(t => new Transmutation { Target = t }).ToArray()
                 });
             }
 
