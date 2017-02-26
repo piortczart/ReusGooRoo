@@ -2,11 +2,19 @@
 
 namespace ReusWikiDataDownload.GameClasses
 {
+    /// <summary>
+    /// TODO: Possibly remove this class.
+    /// </summary>
     public class Ability
     {
         public string Name { get; set; }
         public int Level { get; set; }
         public string Description { get; set; }
+
+        public static string NameFromDescription(string description)
+        {
+            return FromDescription(description).Name;
+        }
 
         public static Ability FromDescription(string description)
         {

@@ -89,6 +89,8 @@ namespace ReusWikiDataDownload
 
             // Find the family.
             resource.Family = Regex.Match(markupText, "data3.+=(.+)").Groups[1].Value.Trim().Trim(']', '[');
+            // And the biome.
+            resource.Biome = Regex.Match(markupText, "data2.+=(.+)").Groups[1].Value.Trim().Trim(']', '[');
 
             var region = GetWikiRegion(markupText, "Levels");
 
@@ -146,12 +148,13 @@ namespace ReusWikiDataDownload
                 });
             }
 
-            var tech = GetWikiRegion(markupText, "Tech Path");
-            foreach (var match in Regex.Matches(tech, "'''(.*?)''': (.*?)$", RegexOptions.Multiline).Cast<Match>())
-            {
-                ResourceLevel resourceLevel = resource.Levels.Single(l => l.Name == match.Groups[1].Value);
-                resourceLevel.AbilityNeeded = Ability.FromDescription(match.Groups[2].Value);
-            }
+            // Too few abilities returned this way.
+            //var tech = GetWikiRegion(markupText, "Tech Path");
+            //Match abilityNeededMatch = Regex.Matches(tech, "'''(.*?)''': (.*?)$", RegexOptions.Multiline).Cast<Match>().FirstOrDefault();
+            //if (abilityNeededMatch != null)
+            //{
+            //    resource.AbilityNeeded = Ability.NameFromDescription(abilityNeededMatch.Groups[2].Value);
+            //}
 
             return resource;
         }

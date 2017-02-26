@@ -10,6 +10,5 @@ namespace ReusWikiDataDownload.GameClasses
         public Yield[] Yields { get; set; }
         public List<Symbiosis> Symbioses { get; set; }
         public string ResourcePrerequisite { get; set; }
-        public Ability AbilityNeeded { get; internal set; }
     }
 }
