@@ -171,6 +171,7 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.best_sources_food = [];
         $scope.best_sources_wealth = [];
         $scope.best_sources_tech = [];
+        $scope.best_sources_all = [];
 
         $scope.calculateStuff = function () {
             var starting_sources = get_starting_sources().filter(biome_filter);
@@ -275,9 +276,6 @@ angular.module('myApp.view2', ['ngRoute'])
             for (var i = 0; i < 5 && i < all_wealth.length; i++) {
                 $scope.best_sources_wealth.push(all_wealth[i]);
             }
-
-            //console.log(JSON.stringify(all_food[0], null, "  "));
-            // console.log(JSON.stringify(best_tech, null, "  "));
         };
     });
 
