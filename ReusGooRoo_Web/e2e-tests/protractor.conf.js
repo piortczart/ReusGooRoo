@@ -11,7 +11,7 @@ exports.config = {
     'browserName': 'chrome'
   },
 
-  baseUrl: 'http://localhost:8000/',
+  baseUrl: 'http://localhost:63342/ReusGooRoo_Web/app/',
 
   framework: 'jasmine',
 
