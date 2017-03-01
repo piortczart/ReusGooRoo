@@ -90,6 +90,8 @@ angular.module('myApp.view2', ['ngRoute'])
             update_active_abilities_and_aspects();
 
             PersistenceService.store_slots($scope.giants);
+
+            recalculate_basic_stats();
         };
 
         $scope.updateLotSize = function () {
@@ -173,18 +175,8 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.best_sources_tech = [];
         $scope.best_sources_all = [];
 
-        $scope.calculateStuff = function () {
+        function recalculate_basic_stats(){
             var starting_sources = get_starting_sources().filter(biome_filter);
-
-            // starting_sources = starting_sources.filter(function (source) {
-            //     return source.result.Name == "Marten";
-            // })
-
-            var magic = [];
-
-            var best_food = [];
-            var best_wealth = [];
-            var best_tech = [];
 
             // Calculate all possible transmutations.
             var transmutations = [];
@@ -210,11 +202,23 @@ angular.module('myApp.view2', ['ngRoute'])
                 actual_sources: all_available_sources
             };
 
+            $scope.iterations_needed =  Math.pow(all_available_sources.length, $scope.lotSize);
+
+            return all_available_sources;
+        }
+
+        $scope.calculateStuff = function () {
+            var all_available_sources = recalculate_basic_stats();
+
+            var magic = [];
+
+            var best_food = [];
+            var best_wealth = [];
+            var best_tech = [];
             var all = [];
 
             var combinations = CombinationsService.get_combinations(all_available_sources, $scope.lotSize);
 
-            $scope.iterations_needed = combinations.length;
 
             combinations.forEach(function (sources) {
 
