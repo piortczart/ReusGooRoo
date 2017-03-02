@@ -170,11 +170,6 @@ angular.module('myApp.view2', ['ngRoute'])
 
         $scope.iterations_needed = "?";
 
-        $scope.best_sources_food = [];
-        $scope.best_sources_wealth = [];
-        $scope.best_sources_tech = [];
-        $scope.best_sources_all = [];
-
         function recalculate_basic_stats() {
             var starting_sources = get_starting_sources().filter(biome_filter);
 
@@ -208,6 +203,7 @@ angular.module('myApp.view2', ['ngRoute'])
         }
 
         $scope.all_results = [];
+        $scope.best_results = [];
 
         $scope.calculateStuff = function () {
             var all_available_sources = recalculate_basic_stats();
@@ -258,35 +254,15 @@ angular.module('myApp.view2', ['ngRoute'])
 
             var best_items_count = 10;
 
-            // Show best food.
-            var all_food = all.sort(function (a, b) {
-                return b.b.get_benefit("food").Amount - a.b.get_benefit("food").Amount;
+            var source_types = ["food", "technology", "wealth", "natura"];
+            source_types.forEach(function (source_type) {
+                var local_best = all.sort(function (a, b) {
+                    return b.b.get_benefit(source_type).Amount - a.b.get_benefit(source_type).Amount;
+                })
+                for (var i = 0; i < best_items_count && i < local_best.length; i++) {
+                    $scope.best_results.push(local_best[i]);
+                }
             })
-            $scope.best_sources_food = [];
-            for (var i = 0; i < best_items_count && i < all_food.length; i++) {
-                $scope.best_sources_food.push(all_food[i]);
-            }
-
-            // Show best tech.
-            var all_tech = all.sort(function (a, b) {
-                return b.b.get_benefit("technology").Amount - a.b.get_benefit("technology").Amount;
-            })
-            $scope.best_sources_tech = [];
-            for (var i = 0; i < best_items_count && i < all_tech.length; i++) {
-                $scope.best_sources_tech.push(all_tech[i]);
-            }
-
-            // Show best wealth.
-            var all_wealth = all.sort(function (a, b) {
-                return b.b.get_benefit("wealth").Amount - a.b.get_benefit("wealth").Amount;
-            })
-            $scope.best_sources_wealth = [];
-            for (var i = 0; i < best_items_count && i < all_wealth.length; i++) {
-                $scope.best_sources_wealth.push(all_wealth[i]);
-            }
-
-            $scope.best_results = $scope.best_sources_wealth.concat($scope.best_sources_tech.concat($scope.best_sources_food));
-
         };
     });
 
