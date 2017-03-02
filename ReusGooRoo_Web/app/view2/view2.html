@@ -1,3 +1,9 @@
+<script>
+    $(document).ready(function () {
+        $('#results-table').DataTable();
+    });
+</script>
+
 <div>
     <h2>What are the best combinations of natural sources I can create with my giants?</h2>
     <h3>1. Select which ambassadors you have.</h3>
@@ -85,46 +91,24 @@
     <div class="col-xs-12">
         <h3>5. Results</h3>
 
-
-        <uib-tabset active="active">
-
-            <uib-tab index="0" heading="Natural Sources">
-                <table cellspacing="0">
-                    <tr class="first">
-                        <th class="first">Name</th>
-                        <th>Biome</th>
-                        <th>Level</th>
-                        <!--<th>Yields</th>-->
-                        <th>Paths</th>
-                    </tr>
-                    <tr ng-repeat="source in possible_natural_sources.actual_sources">
-                        <td class="first">{{source.result.Name}}</td>
-                        <td>{{source.result.Biomes}}</td>
-                        <td>{{source.level}}</td>
-                        <!--<td>{{source.result.Levels[source.level-1].Yields}}</td>-->
-                        <td>{{source.paths}}</td>
-                    </tr>
-                </table>
-            </uib-tab>
-
-            <uib-tab index="1" heading="Food">
-                <div ng-repeat="best_food in best_sources_food" class="checkbox">
-                    {{ best_food.s }}, food: {{ best_food.b.get_benefit("food").Amount }}
-                </div>
-            </uib-tab>
-
-            <uib-tab index="2" heading="Wealth">
-                <div ng-repeat="best_wealth in best_sources_wealth" class="checkbox">
-                    {{ best_wealth.s }}, wealth: {{ best_wealth.b.get_benefit("wealth").Amount }}
-                </div>
-            </uib-tab>
-
-            <uib-tab index="3" heading="Tech">
-                <div ng-repeat="best_tech in best_sources_tech" class="checkbox">
-                    {{ best_tech.s }}, tech: {{ best_tech.b.get_benefit("technology").Amount }}
-                </div>
-            </uib-tab>
-        </uib-tabset>
+        <table  datatable="ng" class="table" id="results-table">
+            <thead>
+            <tr>
+                <th>Sources</th>
+                <th>Food</th>
+                <th>Wealth</th>
+                <th>Technology</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="best_tech in best_results">
+                <td>{{ best_tech.s }}</td>
+                <td>{{ best_tech.b.get_benefit("food").Amount }}</td>
+                <td>{{ best_tech.b.get_benefit("wealth").Amount }}</td>
+                <td>{{ best_tech.b.get_benefit("technology").Amount }}</td>
+            </tr>
+            </tbody>
+        </table>
 
     </div>
 </div>

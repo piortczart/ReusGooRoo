@@ -13,8 +13,11 @@
     "linqjs": "^3.0.5",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.1",
-    "angular-cookies": "bower-angular-cookies#^1.2.26",
     "angular-bootstrap": "^2.5.0",
-    "angular-route": "1.5.11"
+    "angular-route": "1.5.11",
+    "angular-cookies": "1.5.11",
+    "datatables.net": "^2.1.1",
+    "datatables.net-dt": "^3.2.2",
+    "angular-datatables": "0.5.6"
   }
 }

@@ -6,7 +6,7 @@ Array.prototype.selectMany = function (fn) {
     }, []);
 };
 
-angular.module('myApp').factory('PersistenceService', function (Cookies) {
+angular.module('myApp').factory('PersistenceService', function ($cookies) {
 
     function update_slots(giants) {
         var giants_ambassadors = giants.map(function (giant) {
@@ -16,7 +16,7 @@ angular.module('myApp').factory('PersistenceService', function (Cookies) {
             })
         })
 
-        Cookies.set('giants_ambassadors', giants_ambassadors);
+        $cookies.putObject('giants_ambassadors', giants_ambassadors);
     }
 
     return {
@@ -68,7 +68,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
         $scope.active_abilities_and_aspects = [];
 
-        $scope.lotSize = 3;
+        $scope.lotSize = 2;
 
         $scope.possible_natural_sources = {};
 
@@ -175,7 +175,7 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.best_sources_tech = [];
         $scope.best_sources_all = [];
 
-        function recalculate_basic_stats(){
+        function recalculate_basic_stats() {
             var starting_sources = get_starting_sources().filter(biome_filter);
 
             // Calculate all possible transmutations.
@@ -202,10 +202,12 @@ angular.module('myApp.view2', ['ngRoute'])
                 actual_sources: all_available_sources
             };
 
-            $scope.iterations_needed =  Math.pow(all_available_sources.length, $scope.lotSize);
+            $scope.iterations_needed = Math.pow(all_available_sources.length, $scope.lotSize);
 
             return all_available_sources;
         }
+
+        $scope.all_results = [];
 
         $scope.calculateStuff = function () {
             var all_available_sources = recalculate_basic_stats();
@@ -254,12 +256,14 @@ angular.module('myApp.view2', ['ngRoute'])
                 })
             })
 
+            var best_items_count = 10;
+
             // Show best food.
             var all_food = all.sort(function (a, b) {
                 return b.b.get_benefit("food").Amount - a.b.get_benefit("food").Amount;
             })
             $scope.best_sources_food = [];
-            for (var i = 0; i < 5 && i < all_food.length; i++) {
+            for (var i = 0; i < best_items_count && i < all_food.length; i++) {
                 $scope.best_sources_food.push(all_food[i]);
             }
 
@@ -268,7 +272,7 @@ angular.module('myApp.view2', ['ngRoute'])
                 return b.b.get_benefit("technology").Amount - a.b.get_benefit("technology").Amount;
             })
             $scope.best_sources_tech = [];
-            for (var i = 0; i < 5 && i < all_tech.length; i++) {
+            for (var i = 0; i < best_items_count && i < all_tech.length; i++) {
                 $scope.best_sources_tech.push(all_tech[i]);
             }
 
@@ -277,9 +281,12 @@ angular.module('myApp.view2', ['ngRoute'])
                 return b.b.get_benefit("wealth").Amount - a.b.get_benefit("wealth").Amount;
             })
             $scope.best_sources_wealth = [];
-            for (var i = 0; i < 5 && i < all_wealth.length; i++) {
+            for (var i = 0; i < best_items_count && i < all_wealth.length; i++) {
                 $scope.best_sources_wealth.push(all_wealth[i]);
             }
+
+            $scope.best_results = $scope.best_sources_wealth.concat($scope.best_sources_tech.concat($scope.best_sources_food));
+
         };
     });
 

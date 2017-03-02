@@ -2,7 +2,8 @@
 
 angular.module('myApp', [
     'ngRoute',
-    'angular-cookies',
+    'ngCookies',
+    'datatables',
     'ui.bootstrap',
     'myApp.view2',
     'myApp.version'
