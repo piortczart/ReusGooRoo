@@ -4,6 +4,7 @@ angular.module('myApp', [
     'ngRoute',
     'ngCookies',
     'datatables',
+    'ngStorage',
     'ui.bootstrap',
     'myApp.view2',
     'myApp.version'

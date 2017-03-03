@@ -6,23 +6,9 @@ Array.prototype.selectMany = function (fn) {
     }, []);
 };
 
-angular.module('myApp').factory('PersistenceService', function ($cookies) {
-
-    function update_slots(giants) {
-        var giants_ambassadors = giants.map(function (giant) {
-            return giant.slots.map(function (slot) {
-                var ambassador = slot.ambassador;
-                return ambassador === undefined ? undefined : ambassador.biome;
-            })
-        })
-
-        $cookies.putObject('giants_ambassadors', giants_ambassadors);
-    }
-
-    return {
-        store_slots: update_slots
-    };
-});
+function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+}
 
 angular.module('myApp.view2', ['ngRoute'])
 
@@ -33,12 +19,22 @@ angular.module('myApp.view2', ['ngRoute'])
         });
     }])
 
-    .controller('View2Ctrl', function ($scope, $http, GameObjectsService,
-                                       PersistenceService, TileBenefits,
+    .controller('View2Ctrl', function ($scope, $localStorage, $http, GameObjectsService,
+                                       TileBenefits,
                                        NaturalSource, SymbiosesService, TransmutationsService,
-                                       CombinationsService) {
+                                       CombinationsService, Giant, Ambassador, GiantSlot) {
+
+        //$localStorage.$reset();
+
+        $scope.$storage = $localStorage.$default({
+            lot_size: 2,
+            selected_families: ["Minerals", "Animals", "Plants"].map(function (family) {
+                return {name: family, selected: true}
+            })
+        });
+
         GameObjectsService.getGiants().then(function (giants) {
-            $scope.giants = giants;
+            $scope.$storage.giants = giants;
             update_active_abilities_and_aspects();
         });
 
@@ -53,14 +49,12 @@ angular.module('myApp.view2', ['ngRoute'])
         GameObjectsService.getBiomes().then(function (resources) {
             $scope.biomes = resources;
 
-            $scope.selected_biomes = $scope.biomes.map(function (biome) {
-                return {name: biome.name, selected: true}
-            })
+            if ($scope.$storage.selected_biomes === undefined) {
+                $scope.$storage.selected_biomes = $scope.biomes.map(function (biome) {
+                    return {name: biome.name, selected: true}
+                })
+            }
         });
-
-        $scope.selected_families = ["Minerals", "Animals", "Plants"].map(function (family) {
-            return {name: family, selected: true}
-        })
 
         GameObjectsService.getNaturalSources().then(function (sources) {
             $scope.sources = sources;
@@ -68,12 +62,10 @@ angular.module('myApp.view2', ['ngRoute'])
 
         $scope.active_abilities_and_aspects = [];
 
-        $scope.lotSize = 2;
-
         $scope.possible_natural_sources = {};
 
         function update_active_abilities_and_aspects() {
-            $scope.active_abilities_and_aspects = $scope.giants.map(function (giant) {
+            $scope.active_abilities_and_aspects = $scope.$storage.giants.map(function (giant) {
                 return {
                     giant_name: giant.name,
                     abilities: giant.get_active_abilities(),
@@ -85,22 +77,26 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.update = function () {
             // "this" in this context is the angular's "ChildScope"
             // we have a "slot" here (connected to a giant) and a "slotModel" which is the thing bound to the combo box
-            this.slot.ambassador = this.slotModel;
+            if (this.slot.ambassador === undefined) {
+                this.slot.ambassador = this.slotModel;
+            } else {
+                this.slot.ambassador.biome = this.slotModel.biome;
+            }
 
             update_active_abilities_and_aspects();
 
-            PersistenceService.store_slots($scope.giants);
-
-            recalculate_basic_stats();
+            $scope.recalculate_basic_stats();
         };
 
         $scope.updateLotSize = function () {
-            if (this.lotSize > 10) {
-                this.lotSize = 10;
+            if (this.$storage.lot_size > 5) {
+                this.$storage.lot_size = 5;
             }
-            if (this.lotSize < 1) {
-                this.lotSize = 1;
+            if (this.$storage.lot_size < 1) {
+                this.$storage.lot_size = 1;
             }
+
+            $scope.recalculate_basic_stats();
         };
 
         // Returns list of object containing natural sources and levels which can be created by giants with current abilities.
@@ -130,8 +126,8 @@ angular.module('myApp.view2', ['ngRoute'])
 
         function biome_filter(source) {
             var is_biome_valid = false;
-            for (var i = 0; i < $scope.selected_biomes.length; i++) {
-                var valid_biome = $scope.selected_biomes[i];
+            for (var i = 0; i < $scope.$storage.selected_biomes.length; i++) {
+                var valid_biome = $scope.$storage.selected_biomes[i];
                 if (!valid_biome.selected) {
                     continue;
                 }
@@ -151,8 +147,8 @@ angular.module('myApp.view2', ['ngRoute'])
             }
 
             var is_family_valid = false;
-            for (var i = 0; i < $scope.selected_families.length; i++) {
-                var valid_family = $scope.selected_families[i];
+            for (var i = 0; i < $scope.$storage.selected_families.length; i++) {
+                var valid_family = $scope.$storage.selected_families[i];
                 if (!valid_family.selected) {
                     continue;
                 }
@@ -170,7 +166,7 @@ angular.module('myApp.view2', ['ngRoute'])
 
         $scope.iterations_needed = "?";
 
-        function recalculate_basic_stats() {
+        $scope.recalculate_basic_stats = function recalculate_basic_stats() {
             var starting_sources = get_starting_sources().filter(biome_filter);
 
             // Calculate all possible transmutations.
@@ -179,8 +175,7 @@ angular.module('myApp.view2', ['ngRoute'])
                 return aaa.aspects;
             });
             starting_sources.forEach(function (starting_source) {
-                if (starting_source.result.Name == "Chicken")
-                    TransmutationsService.fill_transmutations(starting_source, transmutations, $scope.sources, active_aspects);
+                TransmutationsService.fill_transmutations(starting_source, transmutations, $scope.sources, active_aspects);
             })
             transmutations = transmutations.filter(biome_filter);
 
@@ -197,7 +192,7 @@ angular.module('myApp.view2', ['ngRoute'])
                 actual_sources: all_available_sources
             };
 
-            $scope.iterations_needed = Math.pow(all_available_sources.length, $scope.lotSize);
+            $scope.iterations_needed = Math.pow(all_available_sources.length, $scope.$storage.lot_size);
 
             return all_available_sources;
         }
@@ -206,26 +201,12 @@ angular.module('myApp.view2', ['ngRoute'])
         $scope.best_results = [];
 
         $scope.calculateStuff = function () {
-            var all_available_sources = recalculate_basic_stats();
-
-            var magic = [];
-
-            var best_food = [];
-            var best_wealth = [];
-            var best_tech = [];
+            var all_available_sources = $scope.recalculate_basic_stats();
             var all = [];
 
-            var combinations = CombinationsService.get_combinations(all_available_sources, $scope.lotSize);
-
+            var combinations = CombinationsService.get_combinations(all_available_sources, $scope.$storage.lot_size);
 
             combinations.forEach(function (sources) {
-
-                // if (sources[0].result.Name != "Strawberry" ||
-                //     sources[1].result.Name != "Blueberry" ||
-                //     sources[2].result.Name != "Strawberry"){
-                //     return;
-                // }
-
                 var symbioses_benefits = [];
                 // Any leftover benefits like benefits outside of the given range.
                 var extra_benefits = new TileBenefits($scope.resources);
@@ -260,7 +241,12 @@ angular.module('myApp.view2', ['ngRoute'])
                     return b.b.get_benefit(source_type).Amount - a.b.get_benefit(source_type).Amount;
                 })
                 for (var i = 0; i < best_items_count && i < local_best.length; i++) {
-                    $scope.best_results.push(local_best[i]);
+                    var exists = $scope.best_results.find(function (br) {
+                        return br == local_best[i];
+                    })
+                    if (exists === undefined) {
+                        $scope.best_results.push(local_best[i]);
+                    }
                 }
             })
         };

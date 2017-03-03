@@ -7,17 +7,6 @@ angular.module('myApp').factory('Giant', function (ValueMapper, GiantSlot, Giant
         return ValueMapper(new Giant(), jsonObject);
     }
 
-    // // Checks if the giant has the ambassador starting with the given first letter.
-    // function has_ambassador(first_letter) {
-    //     if (first_letter == 'a')
-    //         return true;
-    //     for (var i = 0; i < 4; i++) {
-    //         if (this.slots[i].ambassador[0] == first_letter)
-    //             return true;
-    //     }
-    //     return false;
-    // }
-
     // Checks if the giant has the proper ambassadors for the selected ability ambassador combination.
     function has_proper_ambassadors(requirements, slots) {
         // Example requirements: "fsaa" - forest, swamp, any, any; "da" - desert, any

@@ -10,7 +10,7 @@
 
     <div class="form">
         <!-- Iterate the giants. -->
-        <div ng-repeat="giant in giants" class="form-group">
+        <div ng-repeat="giant in $storage.giants" class="form-group">
             <div class="col-xs-2 " style="text-align: right">{{ giant.name }}</div>
             <!-- For each giant show it's slots and in each slot show possible ambassadors. -->
             <div class="col-xs-10">
@@ -38,7 +38,7 @@
     <div>
         <h3>2. How much space do you want to cover with natural sources.</h3>
         <div>
-            Number of tiles to use: <input type="number" ng-model="lotSize" ng-change="updateLotSize()"/>
+            Number of tiles to use: <input type="number" ng-model="$storage.lot_size" ng-change="updateLotSize()"/>
         </div>
     </div>
 
@@ -50,8 +50,8 @@
                 <div class="panel-heading">Biomes</div>
                 <div class="panel-body">
                     <div class="checkbox">
-                        <label ng-repeat="biome in selected_biomes">
-                            <input type="checkbox" value="{{biome.name}}" ng-model="biome.selected">
+                        <label ng-repeat="biome in $storage.selected_biomes">
+                            <input type="checkbox" value="{{biome.name}}" ng-model="biome.selected" ng-change=" recalculate_basic_stats()">
                             {{biome.name}}
                         </label>
                     </div>
@@ -65,8 +65,8 @@
                 <div class="panel-body">
 
                     <div class="checkbox">
-                        <label ng-repeat="family in selected_families">
-                            <input type="checkbox" value="{{family.name}}" ng-model="family.selected">
+                        <label ng-repeat="family in $storage.selected_families">
+                            <input type="checkbox" value="{{family.name}}" ng-model="family.selected" ng-change="recalculate_basic_stats()">
                             {{family.name}}
                         </label>
                     </div>

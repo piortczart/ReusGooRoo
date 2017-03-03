@@ -18,6 +18,7 @@
     "angular-cookies": "1.5.11",
     "datatables.net": "^2.1.1",
     "datatables.net-dt": "^3.2.2",
-    "angular-datatables": "0.5.6"
+    "angular-datatables": "0.5.6",
+    "ngstorage": "^0.3.11"
   }
 }
